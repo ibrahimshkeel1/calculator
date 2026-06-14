@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HSE Analysis — Bhit Gas Field</title>
+  <title>UA/UC Analysis — Bhit Gas Field</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,32 +14,31 @@
     <a href="drain.html" class="nav-link">Vessel Drain</a>
     <a href="evaporation.html" class="nav-link">Evaporation Solids</a>
     <a href="natural-gas.html" class="nav-link">Natural Gas</a>
-    <a href="hse-analysis.html" class="nav-link active">HSE Analysis</a>
-    <a href="hse-ua-uc.html" class="nav-link">UA/UC Analysis</a>
+    <a href="hse-analysis.html" class="nav-link">HSE Analysis</a>
+    <a href="hse-ua-uc.html" class="nav-link active">UA/UC Analysis</a>
   </nav>
 
   <div class="converter hse-page">
     <header class="gas-header">
-      <h1 class="converter-title" id="hse-title">HSE Observation Analysis</h1>
+      <h1 class="converter-title" id="hse-title">UA/UC Deep Dive</h1>
       <p class="section-hint gas-subtitle" id="hse-subtitle">Loading…</p>
-      <p class="section-hint hse-page-link"><a href="hse-ua-uc.html">UA/UC deep dive (Sheet 1 only) →</a></p>
+      <p class="section-hint hse-page-link"><a href="hse-analysis.html">← Full HSE Analysis (Sheet 1 &amp; 2)</a></p>
     </header>
 
     <div id="hse-banner" class="gas-field-banner"></div>
     <div id="hse-insights" class="hse-insights-box"></div>
 
     <section class="gas-section">
-      <h2 class="section-title">Summary — Sheet 1 &amp; Sheet 2</h2>
+      <h2 class="section-title">Summary — Sheet 1</h2>
       <div class="gas-kpi-strip" id="hse-kpi"></div>
     </section>
 
     <section class="gas-section">
       <h2 class="section-title">Monthly Trend</h2>
-      <p class="section-hint">Sheet 1 UA/UC vs Sheet 2 Good Observations per month</p>
+      <p class="section-hint">UA/UC reports per month</p>
       <div class="gas-chart-panel">
         <div class="bar-legend">
-          <span class="legend-item"><span class="legend-swatch" style="background:#ef4444"></span> Sheet 1 — UA / UC</span>
-          <span class="legend-item"><span class="legend-swatch" style="background:#22c55e"></span> Sheet 2 — Good Obs</span>
+          <span class="legend-item"><span class="legend-swatch" style="background:#ef4444"></span> UA / UC</span>
         </div>
         <canvas id="hse-monthly-chart" height="300"></canvas>
       </div>
@@ -47,19 +46,19 @@
 
     <section class="gas-section hse-two-col">
       <div class="hse-panel">
-        <h2 class="section-title">Sheet 1 — Closure Status</h2>
+        <h2 class="section-title">Closure Status</h2>
         <canvas id="hse-status-chart" height="260"></canvas>
         <div id="hse-status-table" class="results-table-wrap gas-table-wrap"></div>
       </div>
       <div class="hse-panel">
-        <h2 class="section-title">Sheet 1 — UA vs UC</h2>
+        <h2 class="section-title">UA vs UC</h2>
         <canvas id="hse-type-chart" height="260"></canvas>
         <div id="hse-risk-block"></div>
       </div>
     </section>
 
     <section class="gas-section hse-sheet-section">
-      <h2 class="section-title">Sheet 1 — UA/UC Register 2025–2026</h2>
+      <h2 class="section-title">UA/UC Register 2025–2026</h2>
       <p class="section-hint" id="sheet1-hint"></p>
       <div class="hse-two-col">
         <div class="hse-panel"><h3 class="method-heading">By Department</h3><canvas id="sheet1-dept-chart" height="300"></canvas></div>
@@ -68,28 +67,19 @@
       <div id="sheet1-tables" class="hse-three-col"></div>
     </section>
 
-    <section class="gas-section hse-sheet-section">
-      <h2 class="section-title">Sheet 2 — Good Observations 2025–26</h2>
-      <p class="section-hint" id="sheet2-hint"></p>
-      <div class="hse-two-col">
-        <div class="hse-panel"><h3 class="method-heading">By Department</h3><canvas id="sheet2-dept-chart" height="300"></canvas></div>
-        <div class="hse-panel"><h3 class="method-heading">Monitoring Points</h3><div id="sheet2-monitoring"></div></div>
-      </div>
-    </section>
-
     <section class="gas-section hse-two-col">
       <div class="hse-panel">
-        <h2 class="section-title">Monitoring — Sheet 1 vs Sheet 2</h2>
+        <h2 class="section-title">Monitoring Points</h2>
         <div id="hse-monitoring"></div>
       </div>
       <div class="hse-panel">
-        <h2 class="section-title">Top Locations &amp; Reporters (Sheet 1)</h2>
+        <h2 class="section-title">Top Locations &amp; Reporters</h2>
         <div id="hse-top-lists"></div>
       </div>
     </section>
 
     <section class="gas-section hse-hazard-section">
-      <h2 class="section-title">Hazard Analysis — Sheet 1 (UA/UC)</h2>
+      <h2 class="section-title">Hazard Analysis</h2>
       <p class="section-hint">1,621 UA/UC records — location, golden-rule, and risk profiling</p>
       <div id="hse-hazard-summary" class="hse-insights-box"></div>
       <div class="hse-two-col">
@@ -102,7 +92,7 @@
       </div>
       <h3 class="method-heading" style="margin-top:20px">Recommended Improvements</h3>
       <div id="hazard-recommendations" class="hse-rec-grid"></div>
-      <h3 class="method-heading" style="margin-top:20px">Medium-Risk &amp; Overdue (Sheet 1)</h3>
+      <h3 class="method-heading" style="margin-top:20px">Medium-Risk &amp; Overdue</h3>
       <div class="results-table-wrap gas-table-wrap">
         <table class="results-table gas-compare-table">
           <thead><tr><th>Sr.</th><th>Location</th><th>Golden Rule</th><th>Risk</th><th>Status</th><th>Description</th></tr></thead>
@@ -111,30 +101,14 @@
       </div>
     </section>
 
-    <section class="gas-section">
-      <h2 class="section-title">Open Items — Sheet 1</h2>
-      <p class="section-hint" id="hse-open-summary"></p>
-      <div class="results-table-wrap gas-table-wrap">
-        <table class="results-table gas-compare-table">
-          <thead>
-            <tr>
-              <th>Sr.</th><th>Reporter</th><th>Dept</th><th>Date</th><th>Deadline</th>
-              <th>Location</th><th>Type</th><th>Risk</th><th>Action Party</th><th>Description</th>
-            </tr>
-          </thead>
-          <tbody id="hse-open-body"></tbody>
-        </table>
-      </div>
-    </section>
-
     <section class="gas-section gas-accuracy">
       <h2 class="section-title">Data Source</h2>
       <div class="evap-notes gas-disclaimer">
-        <p><strong>sheet eni.numbers</strong> — Sheet 1: UA/UC Register 2025–2026 (1,621 records) · Sheet 2: Good Observations 2025–26 (1,509 records). Bhit Gas Field, Kirthar / Tajjal.</p>
+        <p><strong>sheet eni.numbers</strong> — Sheet 1: UA/UC Register 2025–2026 (1,621 records). Bhit Gas Field, Kirthar / Tajjal.</p>
       </div>
     </section>
   </div>
 
-  <script src="hse-analysis.js"></script>
+  <script src="hse-ua-uc.js"></script>
 </body>
 </html>
