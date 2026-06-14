@@ -13,31 +13,141 @@
     <a href="chem-eng.html" class="nav-link active">Chem. Eng. Units</a>
   </nav>
 
-  <div class="converter">
-    <h1 class="converter-title">Chemical Engineering Units</h1>
+  <div class="converter chem-page">
+    <h1 class="converter-title">Chemical Engineering</h1>
 
-    <label class="field-label" for="category">Category</label>
-    <select id="category" class="select"></select>
-
-    <div class="conversion-row">
-      <div class="conversion-field">
-        <label class="field-label" for="from-value">From</label>
-        <input type="number" id="from-value" class="input" value="1" step="any">
-        <select id="from-unit" class="select"></select>
-      </div>
-
-      <button id="swap-btn" class="swap-btn" title="Swap units">⇄</button>
-
-      <div class="conversion-field">
-        <label class="field-label" for="to-value">To</label>
-        <input type="text" id="to-value" class="input result" readonly>
-        <select id="to-unit" class="select"></select>
-      </div>
+    <div class="tabs">
+      <button class="tab active" data-tab="units">Unit Converter</button>
+      <button class="tab" data-tab="steam">Steam Calculator</button>
     </div>
 
-    <p class="formula" id="formula"></p>
+    <div id="units-panel" class="tab-panel active">
+      <label class="field-label" for="category">Category</label>
+      <select id="category" class="select"></select>
+
+      <div class="conversion-row">
+        <div class="conversion-field">
+          <label class="field-label" for="from-value">From</label>
+          <input type="number" id="from-value" class="input" value="1" step="any">
+          <select id="from-unit" class="select"></select>
+        </div>
+
+        <button id="swap-btn" class="swap-btn" title="Swap units">⇄</button>
+
+        <div class="conversion-field">
+          <label class="field-label" for="to-value">To</label>
+          <input type="text" id="to-value" class="input result" readonly>
+          <select id="to-unit" class="select"></select>
+        </div>
+      </div>
+
+      <p class="formula" id="formula"></p>
+    </div>
+
+    <div id="steam-panel" class="tab-panel">
+      <h2 class="section-title">Saturated Steam Properties</h2>
+      <p class="section-hint">Lookup properties at saturation (0.01–100 bar). Uses interpolated steam table data.</p>
+
+      <div class="steam-row">
+        <div class="steam-field">
+          <label class="field-label" for="steam-input-mode">Known variable</label>
+          <select id="steam-input-mode" class="select">
+            <option value="pressure">Pressure</option>
+            <option value="temperature">Temperature</option>
+          </select>
+        </div>
+        <div class="steam-field">
+          <label class="field-label" for="steam-input-value">Value</label>
+          <input type="number" id="steam-input-value" class="input" value="10" step="any">
+        </div>
+        <div class="steam-field">
+          <label class="field-label" for="steam-input-unit">Unit</label>
+          <select id="steam-input-unit" class="select"></select>
+        </div>
+      </div>
+
+      <div class="steam-row">
+        <div class="steam-field">
+          <label class="field-label" for="steam-quality">Quality (x) — wet steam</label>
+          <input type="number" id="steam-quality" class="input" value="1" min="0" max="1" step="0.01">
+        </div>
+        <div class="steam-field steam-field-btn">
+          <button id="steam-calc-btn" class="calc-btn">Calculate Properties</button>
+        </div>
+      </div>
+
+      <div class="results-table-wrap">
+        <table class="results-table" id="steam-results">
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Value</th>
+              <th>Unit</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <hr class="section-divider">
+
+      <h2 class="section-title">Heat Duty</h2>
+      <p class="section-hint">Q = ṁ × (h<sub>out</sub> − h<sub>in</sub>)</p>
+
+      <div class="steam-row">
+        <div class="steam-field">
+          <label class="field-label" for="heat-mass-flow">Mass flow rate</label>
+          <input type="number" id="heat-mass-flow" class="input" value="1000" step="any">
+        </div>
+        <div class="steam-field">
+          <label class="field-label" for="heat-mass-unit">Unit</label>
+          <select id="heat-mass-unit" class="select">
+            <option value="kg/h">kg/h</option>
+            <option value="kg/s">kg/s</option>
+            <option value="lb/h">lb/h</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="steam-row">
+        <div class="steam-field">
+          <label class="field-label" for="heat-pin">Inlet pressure</label>
+          <input type="number" id="heat-pin" class="input" value="1" step="any">
+        </div>
+        <div class="steam-field">
+          <label class="field-label" for="heat-xin">Inlet quality (x)</label>
+          <input type="number" id="heat-xin" class="input" value="0" min="0" max="1" step="0.01">
+        </div>
+        <div class="steam-field">
+          <label class="field-label" for="heat-p-unit">Pressure unit</label>
+          <select id="heat-p-unit" class="select">
+            <option value="bar">bar</option>
+            <option value="kPa">kPa</option>
+            <option value="MPa">MPa</option>
+            <option value="psi">psi</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="steam-row">
+        <div class="steam-field">
+          <label class="field-label" for="heat-pout">Outlet pressure</label>
+          <input type="number" id="heat-pout" class="input" value="10" step="any">
+        </div>
+        <div class="steam-field">
+          <label class="field-label" for="heat-xout">Outlet quality (x)</label>
+          <input type="number" id="heat-xout" class="input" value="1" min="0" max="1" step="0.01">
+        </div>
+        <div class="steam-field steam-field-btn">
+          <button id="heat-calc-btn" class="calc-btn">Calculate Heat Duty</button>
+        </div>
+      </div>
+
+      <div class="heat-result" id="heat-result"></div>
+    </div>
   </div>
 
   <script src="chem-eng.js"></script>
+  <script src="steam.js"></script>
 </body>
 </html>

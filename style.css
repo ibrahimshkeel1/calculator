@@ -154,6 +154,185 @@ body {
   max-width: 100%;
 }
 
+.chem-page {
+  width: 560px;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tab {
+  flex: 1;
+  background: #0a0a0a;
+  border: 2px solid #2563eb;
+  border-radius: 10px;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 12px 8px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.tab:hover {
+  color: #fff;
+  border-color: #f97316;
+}
+
+.tab.active {
+  background: #f97316;
+  border-color: #f97316;
+  color: #fff;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.section-title {
+  color: #f97316;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.section-hint {
+  color: #94a3b8;
+  font-size: 0.8rem;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px solid #2a2a2a;
+  margin: 24px 0;
+}
+
+.steam-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+}
+
+.steam-field {
+  flex: 1;
+  min-width: 140px;
+}
+
+.steam-field-btn {
+  display: flex;
+  align-items: flex-end;
+}
+
+.calc-btn {
+  width: 100%;
+  background: #f97316;
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 14px 16px;
+  cursor: pointer;
+  margin-bottom: 16px;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.calc-btn:hover {
+  background: #ea580c;
+}
+
+.calc-btn:active {
+  transform: scale(0.98);
+}
+
+.results-table-wrap {
+  overflow-x: auto;
+  margin-top: 8px;
+}
+
+.results-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.results-table th {
+  background: #172554;
+  color: #fff;
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.results-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid #2a2a2a;
+  color: #e2e8f0;
+}
+
+.results-table .result-cell {
+  color: #f97316;
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-weight: 600;
+}
+
+.error-msg {
+  color: #f87171;
+  text-align: center;
+}
+
+.heat-result {
+  margin-top: 8px;
+}
+
+.heat-result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.heat-result-item {
+  background: #0a0a0a;
+  border: 2px solid #2563eb;
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.heat-result-item.highlight {
+  border-color: #f97316;
+  grid-column: span 2;
+}
+
+.heat-label {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.heat-value {
+  color: #f97316;
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.heat-result-item.highlight .heat-value {
+  font-size: 1.4rem;
+}
+
 .converter-title {
   color: #f97316;
   font-size: 1.4rem;
@@ -238,7 +417,8 @@ body {
 
 @media (max-width: 400px) {
   .calculator,
-  .converter {
+  .converter,
+  .chem-page {
     width: 100%;
     border-radius: 12px;
   }
@@ -263,5 +443,17 @@ body {
   .swap-btn {
     margin-top: 0;
     width: 100%;
+  }
+
+  .steam-row {
+    flex-direction: column;
+  }
+
+  .heat-result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .heat-result-item.highlight {
+    grid-column: span 1;
   }
 }
