@@ -20,28 +20,122 @@ const steamTable = [
   { p: 100.0, T: 311.0, hf: 1407.6, hg: 2724.0, vf: 0.001452, vg: 0.0180,  sf: 3.360, sg: 5.615 },
 ];
 
-const P_UNITS = {
+// ── Unit systems ──────────────────────────────────────────────
+// Pressure: base = bar
+const P_TO_BAR = {
   bar: 1,
+  Pa: 1e-5,
   kPa: 0.01,
   MPa: 10,
+  atm: 1.01325,
   psi: 0.0689475729,
+  psf: 0.0004788026,
+  "in Hg": 0.0338639,
+  mmHg: 0.00133322,
+  torr: 0.00133322,
+  "in H₂O": 0.00249089,
+  "ft H₂O": 0.0298907,
 };
 
-const T_UNITS = {
+const PRESSURE_UNITS = ["bar", "Pa", "kPa", "MPa", "atm", "psi", "psf", "in Hg", "mmHg", "in H₂O", "ft H₂O"];
+
+const P_FROM_BAR = {
+  Pa: (v) => v * 1e5,
+  kPa: (v) => v * 100,
+  bar: (v) => v,
+  MPa: (v) => v * 0.1,
+  atm: (v) => v / 1.01325,
+  psi: (v) => v / 0.0689475729,
+  psf: (v) => v / 0.0004788026,
+  "in Hg": (v) => v / 0.0338639,
+  mmHg: (v) => v / 0.00133322,
+  torr: (v) => v / 0.00133322,
+  "in H₂O": (v) => v / 0.00249089,
+  "ft H₂O": (v) => v / 0.0298907,
+};
+
+// Temperature: base = °C
+const T_TO_C = {
   "°C": (v) => v,
   K: (v) => v - 273.15,
   "°F": (v) => (v - 32) * (5 / 9),
+  "°R": (v) => (v - 491.67) * (5 / 9),
 };
 
-const PRESSURE_UNITS = ["bar", "kPa", "MPa", "psi"];
-const TEMP_UNITS = ["°C", "K", "°F"];
+const TEMP_UNITS = ["°C", "K", "°F", "°R"];
+
+const T_FROM_C = {
+  "°C": (v) => v,
+  K: (v) => v + 273.15,
+  "°F": (v) => v * (9 / 5) + 32,
+  "°R": (v) => (v + 273.15) * (9 / 5),
+};
+
+// Enthalpy: base = kJ/kg
+const H_FROM_KJKG = {
+  "J/kg": (v) => v * 1000,
+  "kJ/kg": (v) => v,
+  "MJ/kg": (v) => v / 1000,
+  "BTU/lb": (v) => v / 2.326,
+  "cal/g": (v) => v / 4.1868,
+  "kcal/kg": (v) => v / 4.1868,
+};
+
+// Specific volume: base = m³/kg
+const V_FROM_M3KG = {
+  "m³/kg": (v) => v,
+  "L/kg": (v) => v * 1000,
+  "cm³/g": (v) => v * 1000,
+  "ft³/lb": (v) => v / 0.06242796,
+  "gal/lb": (v) => v / 0.0083454,
+  "in³/lb": (v) => v / 0.000036127,
+};
+
+// Entropy: base = kJ/(kg·K)
+const S_FROM_KJKGK = {
+  "J/(kg·K)": (v) => v * 1000,
+  "kJ/(kg·K)": (v) => v,
+  "BTU/(lb·°F)": (v) => v / 4.1868,
+  "cal/(g·°C)": (v) => v / 4.1868,
+};
+
+// Mass flow: base = kg/s
+const MASS_TO_KGS = {
+  "kg/s": 1,
+  "kg/h": 1 / 3600,
+  "g/s": 0.001,
+  "lb/s": 0.45359237,
+  "lb/h": 0.45359237 / 3600,
+  "lb/min": 0.45359237 / 60,
+  "ton/h": 1000 / 3600,
+};
+
+// Heat duty: base = kW
+const Q_FROM_KW = {
+  W: (v) => v * 1000,
+  kW: (v) => v,
+  MW: (v) => v / 1000,
+  "J/s": (v) => v * 1000,
+  "kJ/h": (v) => v * 3600,
+  "MJ/h": (v) => v * 3.6,
+  "BTU/h": (v) => v * 3412.142,
+  "BTU/min": (v) => v * 56.869,
+  "BTU/s": (v) => v * 0.947817,
+  hp: (v) => v / 0.7457,
+};
 
 function formatNum(value, digits = 4) {
   if (!isFinite(value)) return "—";
   const abs = Math.abs(value);
   if (abs === 0) return "0";
-  if (abs < 0.001 || abs >= 1e6) return value.toExponential(4);
+  if (abs < 0.0001 || abs >= 1e6) return value.toExponential(4);
   return parseFloat(value.toPrecision(digits)).toString();
+}
+
+function formatUnitGroup(units, baseValue, converters) {
+  return units
+    .map((u) => `<span class="unit-chip">${formatNum(converters[u](baseValue))} <em>${u}</em></span>`)
+    .join("");
 }
 
 function lerp(a, b, t) {
@@ -98,10 +192,6 @@ function interpolateByTemperature(tC) {
   return null;
 }
 
-function getSaturatedProps(pBar) {
-  return interpolateByPressure(pBar);
-}
-
 function wetSteamProps(sat, quality) {
   const x = Math.max(0, Math.min(1, quality));
   return {
@@ -117,17 +207,33 @@ function wetSteamProps(sat, quality) {
   };
 }
 
-function toKgPerSec(massFlow, unit) {
-  switch (unit) {
-    case "kg/s": return massFlow;
-    case "kg/h": return massFlow / 3600;
-    case "lb/h": return massFlow * 0.45359237 / 3600;
-    default: return massFlow / 3600;
-  }
+function pressureToBar(value, unit) {
+  return value * P_TO_BAR[unit];
 }
 
-function pressureToBar(value, unit) {
-  return value * P_UNITS[unit];
+function toKgPerSec(massFlow, unit) {
+  return massFlow * MASS_TO_KGS[unit];
+}
+
+const SI_PRESSURE = ["Pa", "kPa", "bar", "MPa"];
+const BRITISH_PRESSURE = ["psi", "psf", "atm", "in Hg", "mmHg", "in H₂O", "ft H₂O"];
+const SI_TEMP = ["°C", "K"];
+const BRITISH_TEMP = ["°F", "°R"];
+const SI_ENTHALPY = ["J/kg", "kJ/kg", "MJ/kg"];
+const BRITISH_ENTHALPY = ["BTU/lb", "cal/g", "kcal/kg"];
+const SI_VOLUME = ["m³/kg", "L/kg", "cm³/g"];
+const BRITISH_VOLUME = ["ft³/lb", "gal/lb", "in³/lb"];
+const SI_ENTROPY = ["J/(kg·K)", "kJ/(kg·K)"];
+const BRITISH_ENTROPY = ["BTU/(lb·°F)", "cal/(g·°C)"];
+const SI_HEAT = ["W", "kW", "MW", "J/s", "kJ/h", "MJ/h"];
+const BRITISH_HEAT = ["BTU/h", "BTU/min", "BTU/s", "hp"];
+
+function buildRow(label, siUnits, britUnits, baseValue, converter) {
+  return `<tr>
+    <td>${label}</td>
+    <td class="unit-cell">${formatUnitGroup(siUnits, baseValue, converter)}</td>
+    <td class="unit-cell">${formatUnitGroup(britUnits, baseValue, converter)}</td>
+  </tr>`;
 }
 
 // Tab switching
@@ -140,7 +246,6 @@ document.querySelectorAll(".tab").forEach((tab) => {
   });
 });
 
-// Steam input unit options
 const steamInputMode = document.getElementById("steam-input-mode");
 const steamInputUnit = document.getElementById("steam-input-unit");
 
@@ -166,11 +271,9 @@ function calcSteamProperties() {
 
   let sat;
   if (mode === "pressure") {
-    const pBar = pressureToBar(value, unit);
-    sat = interpolateByPressure(pBar);
+    sat = interpolateByPressure(pressureToBar(value, unit));
   } else {
-    const tC = T_UNITS[unit](value);
-    sat = interpolateByTemperature(tC);
+    sat = interpolateByTemperature(T_TO_C[unit](value));
   }
 
   if (!sat) {
@@ -181,25 +284,21 @@ function calcSteamProperties() {
   const props = wetSteamProps(sat, quality);
   const phase = quality === 0 ? "Saturated liquid" : quality === 1 ? "Saturated vapor" : `Wet steam (x = ${quality})`;
 
-  const rows = [
-    ["Saturation pressure", formatNum(sat.p), "bar"],
-    ["Saturation temperature", formatNum(sat.T), "°C"],
-    ["Phase", phase, "—"],
-    ["Specific enthalpy (h)", formatNum(props.h), "kJ/kg"],
-    ["Saturated liquid enthalpy (hf)", formatNum(sat.hf), "kJ/kg"],
-    ["Saturated vapor enthalpy (hg)", formatNum(sat.hg), "kJ/kg"],
-    ["Latent heat (hfg)", formatNum(props.hfg), "kJ/kg"],
-    ["Specific volume (v)", formatNum(props.v), "m³/kg"],
-    ["Saturated liquid volume (vf)", formatNum(sat.vf), "m³/kg"],
-    ["Saturated vapor volume (vg)", formatNum(sat.vg), "m³/kg"],
-    ["Specific entropy (s)", formatNum(props.s), "kJ/(kg·K)"],
-    ["Saturated liquid entropy (sf)", formatNum(sat.sf), "kJ/(kg·K)"],
-    ["Saturated vapor entropy (sg)", formatNum(sat.sg), "kJ/(kg·K)"],
-  ];
+  let html = buildRow("Saturation pressure", SI_PRESSURE, BRITISH_PRESSURE, sat.p, P_FROM_BAR);
+  html += buildRow("Saturation temperature", SI_TEMP, BRITISH_TEMP, sat.T, T_FROM_C);
+  html += `<tr><td>Phase</td><td colspan="2" class="phase-cell">${phase}</td></tr>`;
+  html += buildRow("Specific enthalpy (h)", SI_ENTHALPY, BRITISH_ENTHALPY, props.h, H_FROM_KJKG);
+  html += buildRow("Saturated liquid enthalpy (hf)", SI_ENTHALPY, BRITISH_ENTHALPY, sat.hf, H_FROM_KJKG);
+  html += buildRow("Saturated vapor enthalpy (hg)", SI_ENTHALPY, BRITISH_ENTHALPY, sat.hg, H_FROM_KJKG);
+  html += buildRow("Latent heat (hfg)", SI_ENTHALPY, BRITISH_ENTHALPY, props.hfg, H_FROM_KJKG);
+  html += buildRow("Specific volume (v)", SI_VOLUME, BRITISH_VOLUME, props.v, V_FROM_M3KG);
+  html += buildRow("Saturated liquid volume (vf)", SI_VOLUME, BRITISH_VOLUME, sat.vf, V_FROM_M3KG);
+  html += buildRow("Saturated vapor volume (vg)", SI_VOLUME, BRITISH_VOLUME, sat.vg, V_FROM_M3KG);
+  html += buildRow("Specific entropy (s)", SI_ENTROPY, BRITISH_ENTROPY, props.s, S_FROM_KJKGK);
+  html += buildRow("Saturated liquid entropy (sf)", SI_ENTROPY, BRITISH_ENTROPY, sat.sf, S_FROM_KJKGK);
+  html += buildRow("Saturated vapor entropy (sg)", SI_ENTROPY, BRITISH_ENTROPY, sat.sg, S_FROM_KJKGK);
 
-  tbody.innerHTML = rows.map(([prop, val, u]) =>
-    `<tr><td>${prop}</td><td class="result-cell">${val}</td><td>${u}</td></tr>`
-  ).join("");
+  tbody.innerHTML = html;
 }
 
 function calcHeatDuty() {
@@ -227,37 +326,39 @@ function calcHeatDuty() {
 
   const hIn = wetSteamProps(satIn, xIn).h;
   const hOut = wetSteamProps(satOut, xOut).h;
+  const deltaH = hOut - hIn;
   const mDot = toKgPerSec(massFlow, massUnit);
-  const qKw = mDot * (hOut - hIn);
-  const qKjH = qKw * 3600;
-  const qBtuH = qKjH * 0.947817;
+  const qKw = mDot * deltaH;
+
+  const enthalpySi = formatUnitGroup(SI_ENTHALPY, hIn, H_FROM_KJKG);
+  const enthalpyBritish = formatUnitGroup(BRITISH_ENTHALPY, hIn, H_FROM_KJKG);
+  const enthalpyOutSi = formatUnitGroup(SI_ENTHALPY, hOut, H_FROM_KJKG);
+  const enthalpyOutBritish = formatUnitGroup(BRITISH_ENTHALPY, hOut, H_FROM_KJKG);
+  const deltaHSi = formatUnitGroup(SI_ENTHALPY, deltaH, H_FROM_KJKG);
+  const deltaHBritish = formatUnitGroup(BRITISH_ENTHALPY, deltaH, H_FROM_KJKG);
+  const heatSi = formatUnitGroup(SI_HEAT, qKw, Q_FROM_KW);
+  const heatBritish = formatUnitGroup(BRITISH_HEAT, qKw, Q_FROM_KW);
 
   resultEl.innerHTML = `
-    <div class="heat-result-grid">
-      <div class="heat-result-item">
-        <span class="heat-label">Inlet enthalpy (h₁)</span>
-        <span class="heat-value">${formatNum(hIn)} kJ/kg</span>
-      </div>
-      <div class="heat-result-item">
-        <span class="heat-label">Outlet enthalpy (h₂)</span>
-        <span class="heat-value">${formatNum(hOut)} kJ/kg</span>
-      </div>
-      <div class="heat-result-item">
-        <span class="heat-label">Δh</span>
-        <span class="heat-value">${formatNum(hOut - hIn)} kJ/kg</span>
-      </div>
-      <div class="heat-result-item highlight">
-        <span class="heat-label">Heat duty (Q)</span>
-        <span class="heat-value">${formatNum(qKw)} kW</span>
-      </div>
-      <div class="heat-result-item">
-        <span class="heat-label">Heat duty</span>
-        <span class="heat-value">${formatNum(qKjH)} kJ/h</span>
-      </div>
-      <div class="heat-result-item">
-        <span class="heat-label">Heat duty</span>
-        <span class="heat-value">${formatNum(qBtuH)} BTU/h</span>
-      </div>
+    <div class="heat-units-block">
+      <h3 class="heat-block-title">Inlet enthalpy (h₁)</h3>
+      <div class="heat-units-row"><span class="heat-system-label">SI</span><div class="unit-cell">${enthalpySi}</div></div>
+      <div class="heat-units-row"><span class="heat-system-label">British</span><div class="unit-cell">${enthalpyBritish}</div></div>
+    </div>
+    <div class="heat-units-block">
+      <h3 class="heat-block-title">Outlet enthalpy (h₂)</h3>
+      <div class="heat-units-row"><span class="heat-system-label">SI</span><div class="unit-cell">${enthalpyOutSi}</div></div>
+      <div class="heat-units-row"><span class="heat-system-label">British</span><div class="unit-cell">${enthalpyOutBritish}</div></div>
+    </div>
+    <div class="heat-units-block">
+      <h3 class="heat-block-title">Δh</h3>
+      <div class="heat-units-row"><span class="heat-system-label">SI</span><div class="unit-cell">${deltaHSi}</div></div>
+      <div class="heat-units-row"><span class="heat-system-label">British</span><div class="unit-cell">${deltaHBritish}</div></div>
+    </div>
+    <div class="heat-units-block highlight">
+      <h3 class="heat-block-title">Heat duty (Q)</h3>
+      <div class="heat-units-row"><span class="heat-system-label">SI</span><div class="unit-cell">${heatSi}</div></div>
+      <div class="heat-units-row"><span class="heat-system-label">British</span><div class="unit-cell">${heatBritish}</div></div>
     </div>
   `;
 }

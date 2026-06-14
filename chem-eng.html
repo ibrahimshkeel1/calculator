@@ -81,8 +81,8 @@
           <thead>
             <tr>
               <th>Property</th>
-              <th>Value</th>
-              <th>Unit</th>
+              <th>SI</th>
+              <th>British / Imperial</th>
             </tr>
           </thead>
           <tbody></tbody>
@@ -104,7 +104,11 @@
           <select id="heat-mass-unit" class="select">
             <option value="kg/h">kg/h</option>
             <option value="kg/s">kg/s</option>
+            <option value="g/s">g/s</option>
             <option value="lb/h">lb/h</option>
+            <option value="lb/s">lb/s</option>
+            <option value="lb/min">lb/min</option>
+            <option value="ton/h">ton/h</option>
           </select>
         </div>
       </div>
@@ -122,9 +126,16 @@
           <label class="field-label" for="heat-p-unit">Pressure unit</label>
           <select id="heat-p-unit" class="select">
             <option value="bar">bar</option>
+            <option value="Pa">Pa</option>
             <option value="kPa">kPa</option>
             <option value="MPa">MPa</option>
+            <option value="atm">atm</option>
             <option value="psi">psi</option>
+            <option value="psf">psf</option>
+            <option value="in Hg">in Hg</option>
+            <option value="mmHg">mmHg</option>
+            <option value="in H₂O">in H₂O</option>
+            <option value="ft H₂O">ft H₂O</option>
           </select>
         </div>
       </div>

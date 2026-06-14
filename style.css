@@ -155,7 +155,7 @@ body {
 }
 
 .chem-page {
-  width: 560px;
+  width: 640px;
 }
 
 .tabs {
@@ -277,12 +277,72 @@ body {
   padding: 9px 12px;
   border-bottom: 1px solid #2a2a2a;
   color: #e2e8f0;
+  vertical-align: top;
 }
 
-.results-table .result-cell {
-  color: #f97316;
+.results-table .unit-cell {
+  line-height: 1.8;
+}
+
+.unit-chip {
+  display: inline-block;
+  background: #0a0a0a;
+  border: 1px solid #2563eb;
+  border-radius: 6px;
+  padding: 3px 8px;
+  margin: 2px 4px 2px 0;
   font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.8rem;
+  color: #f97316;
+  white-space: nowrap;
+}
+
+.unit-chip em {
+  color: #94a3b8;
+  font-style: normal;
+  font-size: 0.72rem;
+}
+
+.phase-cell {
+  color: #f97316;
   font-weight: 600;
+}
+
+.heat-units-block {
+  background: #0a0a0a;
+  border: 2px solid #2563eb;
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 10px;
+}
+
+.heat-units-block.highlight {
+  border-color: #f97316;
+}
+
+.heat-block-title {
+  color: #f97316;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.heat-units-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 6px;
+}
+
+.heat-system-label {
+  color: #2563eb;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  min-width: 52px;
+  padding-top: 6px;
+  flex-shrink: 0;
 }
 
 .error-msg {
