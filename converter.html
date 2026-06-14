@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-link">Calculator</a>
+    <a href="converter.html" class="nav-link active">Unit Converter</a>
+  </nav>
+
+  <div class="converter">
+    <h1 class="converter-title">Unit Converter</h1>
+
+    <label class="field-label" for="category">Category</label>
+    <select id="category" class="select"></select>
+
+    <div class="conversion-row">
+      <div class="conversion-field">
+        <label class="field-label" for="from-value">From</label>
+        <input type="number" id="from-value" class="input" value="1" step="any">
+        <select id="from-unit" class="select"></select>
+      </div>
+
+      <button id="swap-btn" class="swap-btn" title="Swap units">⇄</button>
+
+      <div class="conversion-field">
+        <label class="field-label" for="to-value">To</label>
+        <input type="text" id="to-value" class="input result" readonly>
+        <select id="to-unit" class="select"></select>
+      </div>
+    </div>
+
+    <p class="formula" id="formula"></p>
+  </div>
+
+  <script src="converter.js"></script>
+</body>
+</html>
