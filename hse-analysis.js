@@ -302,10 +302,12 @@ function renderHazard(d) {
 
   const concerns = [...(h.medium_risk_samples || []), ...(h.open_high_concern || [])].slice(0, 15);
   document.getElementById("hazard-concern-body").innerHTML = concerns.map((r) => `<tr>
-    <td class="gas-num-cell">${r.sr ?? ""}</td><td>${r.loc ?? r.location ?? ""}</td>
-    <td>${r.golden ?? ""}</td><td>${r.risk ?? ""}</td>
-    <td>${r.status ?? (r.overdue ? "Open (overdue)" : "")}</td>
-    <td class="hse-desc-cell">${r.desc ?? r.description ?? ""}</td></tr>`).join("");
+    <td class="gas-num-cell" data-label="Sr.">${r.sr ?? ""}</td>
+    <td data-label="Location">${r.loc ?? r.location ?? ""}</td>
+    <td data-label="Golden Rule">${r.golden ?? ""}</td>
+    <td data-label="Risk">${r.risk ?? ""}</td>
+    <td data-label="Status">${r.status ?? (r.overdue ? "Open (overdue)" : "")}</td>
+    <td class="hse-desc-cell" data-label="Description">${r.desc ?? r.description ?? ""}</td></tr>`).join("");
 }
 
 function renderOpen(d) {
@@ -314,10 +316,16 @@ function renderOpen(d) {
   document.getElementById("hse-open-summary").textContent =
     `${open} open items (${d.ua.overdue_open || 0} past deadline). Showing ${items.length} records.`;
   document.getElementById("hse-open-body").innerHTML = items.map((r) => `<tr>
-    <td class="gas-num-cell">${r.sr ?? ""}</td><td>${r.name ?? ""}</td><td>${r.dept ?? ""}</td>
-    <td>${String(r.date).split(" at")[0]}</td><td>${String(r.deadline || "").split(" at")[0]}</td>
-    <td>${r.location ?? ""}</td><td>${r.type ?? ""}</td><td>${r.risk ?? ""}</td>
-    <td>${r.action ?? ""}</td><td class="hse-desc-cell">${r.description ?? ""}</td></tr>`).join("");
+    <td class="gas-num-cell" data-label="Sr.">${r.sr ?? ""}</td>
+    <td data-label="Reporter">${r.name ?? ""}</td>
+    <td data-label="Dept">${r.dept ?? ""}</td>
+    <td data-label="Date">${String(r.date).split(" at")[0]}</td>
+    <td data-label="Deadline">${String(r.deadline || "").split(" at")[0]}</td>
+    <td data-label="Location">${r.location ?? ""}</td>
+    <td data-label="Type">${r.type ?? ""}</td>
+    <td data-label="Risk">${r.risk ?? ""}</td>
+    <td data-label="Action Party">${r.action ?? ""}</td>
+    <td class="hse-desc-cell" data-label="Description">${r.description ?? ""}</td></tr>`).join("");
 }
 
 function renderAll(raw) {

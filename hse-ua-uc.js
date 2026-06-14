@@ -290,10 +290,12 @@ function renderHazard(d) {
 
   const concerns = [...(h.medium_risk_samples || []), ...(h.open_high_concern || [])].slice(0, 15);
   document.getElementById("hazard-concern-body").innerHTML = concerns.map((r) => `<tr>
-    <td class="gas-num-cell">${r.sr ?? ""}</td><td>${r.loc ?? r.location ?? ""}</td>
-    <td>${r.golden ?? ""}</td><td>${r.risk ?? ""}</td>
-    <td>${r.status ?? (r.overdue ? "Open (overdue)" : "")}</td>
-    <td class="hse-desc-cell">${r.desc ?? r.description ?? ""}</td></tr>`).join("");
+    <td class="gas-num-cell" data-label="Sr.">${r.sr ?? ""}</td>
+    <td data-label="Location">${r.loc ?? r.location ?? ""}</td>
+    <td data-label="Golden Rule">${r.golden ?? ""}</td>
+    <td data-label="Risk">${r.risk ?? ""}</td>
+    <td data-label="Status">${r.status ?? (r.overdue ? "Open (overdue)" : "")}</td>
+    <td class="hse-desc-cell" data-label="Description">${r.desc ?? r.description ?? ""}</td></tr>`).join("");
 }
 
 function renderAll(raw) {
