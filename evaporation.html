@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Evaporation Solids Calculator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-link">Calculator</a>
+    <a href="converter.html" class="nav-link">Unit Converter</a>
+    <a href="chem-eng.html" class="nav-link">Chem. Eng. Units</a>
+    <a href="drain.html" class="nav-link">Vessel Drain</a>
+    <a href="evaporation.html" class="nav-link active">Evaporation Solids</a>
+  </nav>
+
+  <div class="converter evap-page">
+    <h1 class="converter-title">Evaporation Solids Calculator</h1>
+    <p class="section-hint">Calculate total dissolved solid mass and composition after complete evaporation of water. Concentrations in ppm (mg/L).</p>
+
+    <div class="steam-row">
+      <div class="steam-field">
+        <label class="field-label" for="water-volume">Water volume (m³)</label>
+        <input type="number" id="water-volume" class="input" value="100" step="any" min="0.001">
+      </div>
+      <div class="steam-field steam-field-btn">
+        <button id="calc-btn" class="calc-btn">Calculate Solids</button>
+      </div>
+    </div>
+
+    <div class="evap-layout">
+      <div class="evap-panel" id="raw-panel">
+        <h2 class="section-title">Raw Water</h2>
+        <div class="evap-summary" id="raw-summary"></div>
+        <div class="results-table-wrap">
+          <table class="results-table" id="raw-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>ppm</th>
+                <th>Mass (kg)</th>
+                <th>% of solids</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <canvas id="raw-chart" width="360" height="220"></canvas>
+      </div>
+
+      <div class="evap-panel" id="product-panel">
+        <h2 class="section-title">Product Water</h2>
+        <div class="evap-summary" id="product-summary"></div>
+        <div class="results-table-wrap">
+          <table class="results-table" id="product-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>ppm</th>
+                <th>Mass (kg)</th>
+                <th>% of solids</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <canvas id="product-chart" width="360" height="220"></canvas>
+      </div>
+    </div>
+
+    <div class="evap-compare-section">
+      <h2 class="section-title">Comparison — Raw vs Product Water</h2>
+      <div class="bar-legend">
+        <span class="legend-item"><span class="legend-swatch" style="background:#2563eb"></span> Raw Water</span>
+        <span class="legend-item"><span class="legend-swatch" style="background:#f97316"></span> Product Water</span>
+      </div>
+      <canvas id="compare-bar-chart" width="860" height="380"></canvas>
+    </div>
+
+    <div class="evap-notes" id="evap-notes"></div>
+
+    <div class="method-section">
+      <h2 class="section-title">Method &amp; Formulae</h2>
+
+      <div class="method-block">
+        <h3 class="method-heading">1. Objective</h3>
+        <p>When water is completely evaporated, all dissolved ions and minerals remain behind as solid residue. This calculator estimates the <strong>total mass</strong> and <strong>composition</strong> of those solids from laboratory water analysis reported in <strong>ppm (mg/L)</strong>.</p>
+      </div>
+
+      <div class="method-block">
+        <h3 class="method-heading">2. Unit Definitions</h3>
+        <ul class="method-list">
+          <li><strong>ppm</strong> = parts per million = <strong>mg/L</strong> (for dilute aqueous solutions, 1 ppm ≈ 1 mg of solute per litre of water)</li>
+          <li><strong>Volume:</strong> 1 m³ = 1,000 L</li>
+          <li><strong>Mass:</strong> 1 kg = 1,000 g = 1,000,000 mg</li>
+        </ul>
+      </div>
+
+      <div class="method-block">
+        <h3 class="method-heading">3. Core Formulae</h3>
+        <div class="formula-card">
+          <p class="formula-label">Volume in litres</p>
+          <p class="formula">V<sub>L</sub> = V<sub>m³</sub> × 1,000</p>
+        </div>
+        <div class="formula-card">
+          <p class="formula-label">Mass of each dissolved species (kg)</p>
+          <p class="formula">m<sub>i</sub> (kg) = C<sub>i</sub> (ppm) × V<sub>m³</sub> ÷ 1,000</p>
+          <p class="formula-alt">m<sub>i</sub> (kg) = C<sub>i</sub> (mg/L) × V<sub>L</sub> (L) ÷ 1,000,000</p>
+        </div>
+        <div class="formula-card">
+          <p class="formula-label">Total solids from reported TDS (kg)</p>
+          <p class="formula">m<sub>TDS</sub> (kg) = TDS (ppm) × V<sub>m³</sub> ÷ 1,000</p>
+        </div>
+        <div class="formula-card">
+          <p class="formula-label">Composition by mass (%)</p>
+          <p class="formula">%<sub>i</sub> = ( m<sub>i</sub> ÷ Σm<sub>ions</sub> ) × 100</p>
+        </div>
+      </div>
+
+      <div class="method-block">
+        <h3 class="method-heading">4. Calculation Steps</h3>
+        <ol class="method-list ordered">
+          <li>Convert water volume from m³ to litres: multiply by 1,000.</li>
+          <li>For each ion (Na⁺, Cl⁻, SO₄²⁻, etc.), multiply its ppm concentration by the volume in m³ and divide by 1,000 to get mass in kg.</li>
+          <li>Sum all individual ion masses to get <strong>Σm<sub>ions</sub></strong>.</li>
+          <li>Calculate each ion's percentage: divide its mass by the ion sum and multiply by 100.</li>
+          <li>Separately calculate total solids from the reported <strong>TDS</strong> value using the same mass formula.</li>
+          <li>Plot results in pie and bar charts for visual comparison.</li>
+        </ol>
+      </div>
+
+      <div class="method-block">
+        <h3 class="method-heading">5. Worked Example (100 m³, Raw Water Sodium)</h3>
+        <div class="example-box">
+          <p>Given: Sodium = <strong>200 ppm</strong>, Volume = <strong>100 m³</strong></p>
+          <p class="formula">m<sub>Na</sub> = 200 × 100 ÷ 1,000 = <strong>20 kg</strong></p>
+          <p class="example-note">Shortcut: for 100 m³, each 1 ppm contributes exactly <strong>0.1 kg</strong> of solid.</p>
+        </div>
+        <div class="example-box">
+          <p>Given: TDS = <strong>760 ppm</strong>, Volume = <strong>100 m³</strong></p>
+          <p class="formula">m<sub>TDS</sub> = 760 × 100 ÷ 1,000 = <strong>76 kg</strong> total solids</p>
+        </div>
+      </div>
+
+      <div class="method-block">
+        <h3 class="method-heading">6. Parameters NOT Summed (Avoid Double-Counting)</h3>
+        <ul class="method-list">
+          <li><strong>Alkalinity as CaCO₃</strong> — a derived equivalent measure; bicarbonate/carbonate already counted separately.</li>
+          <li><strong>Hardness as CaCO₃</strong> — derived from Ca²⁺ and Mg²⁺; those ions are already listed individually.</li>
+          <li>These are shown in the table as <em>reference only</em>.</li>
+        </ul>
+      </div>
+
+      <div class="method-block">
+        <h3 class="method-heading">7. Assumptions &amp; Limitations</h3>
+        <ul class="method-list">
+          <li>Water is evaporated to <strong>complete dryness</strong> — all water removed.</li>
+          <li>Concentrations are assumed <strong>uniform</strong> throughout the volume.</li>
+          <li>No chemical precipitation or ion-pairing reactions are modelled (actual salt forms may differ, e.g. NaCl, CaSO₄, MgSO₄).</li>
+          <li><strong>BDL</strong> (Below Detection Limit) and <strong>Nil</strong> are treated as zero.</li>
+          <li>The ion sum may differ slightly from reported TDS due to unmeasured species, rounding, and overlapping parameters in the lab report.</li>
+        </ul>
+      </div>
+
+      <div class="method-block" id="live-results"></div>
+    </div>
+  </div>
+
+  <script src="evaporation.js"></script>
+</body>
+</html>
