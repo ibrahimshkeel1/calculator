@@ -516,4 +516,153 @@ body {
   .heat-result-item.highlight {
     grid-column: span 1;
   }
+
+  .drain-layout {
+    flex-direction: column;
+  }
+
+  .drain-page {
+    width: 100%;
+  }
+}
+
+.drain-page {
+  width: 860px;
+}
+
+.drain-summary {
+  margin-bottom: 20px;
+}
+
+.drain-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.summary-item {
+  background: #0a0a0a;
+  border: 2px solid #2563eb;
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summary-item.highlight {
+  border-color: #f97316;
+  grid-column: span 2;
+}
+
+.summary-label {
+  color: #94a3b8;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.summary-value {
+  color: #f97316;
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.drain-layout {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.drain-visual-panel,
+.drain-graph-panel {
+  flex: 1;
+  min-width: 0;
+}
+
+.drain-visual-panel canvas,
+.drain-graph-panel canvas {
+  width: 100%;
+  background: #0a0a0a;
+  border: 2px solid #2563eb;
+  border-radius: 10px;
+  display: block;
+}
+
+.drain-controls {
+  margin-top: 12px;
+}
+
+.time-slider {
+  width: 100%;
+  accent-color: #f97316;
+  margin: 8px 0;
+}
+
+.time-display {
+  color: #f97316;
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.play-btn {
+  margin-bottom: 0;
+}
+
+.vessel-inputs.hidden {
+  display: none;
+}
+
+#simulate-btn {
+  margin-bottom: 20px;
+}
+
+.press-row {
+  margin-bottom: 8px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 12px 0;
+}
+
+.checkbox-label input {
+  width: 18px;
+  height: 18px;
+  accent-color: #f97316;
+}
+
+.graph-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #94a3b8;
+}
+
+.legend-swatch {
+  width: 24px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.legend-swatch.dashed {
+  background: repeating-linear-gradient(90deg, #2563eb 0 6px, transparent 6px 10px);
+  height: 2px;
 }

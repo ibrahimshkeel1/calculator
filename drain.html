@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vessel Drain Simulation</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-link">Calculator</a>
+    <a href="converter.html" class="nav-link">Unit Converter</a>
+    <a href="chem-eng.html" class="nav-link">Chem. Eng. Units</a>
+    <a href="drain.html" class="nav-link active">Vessel Drain</a>
+  </nav>
+
+  <div class="converter drain-page">
+    <h1 class="converter-title">Vessel Drain Simulation</h1>
+    <p class="section-hint">Drain through bottom valve. Optional air pressurization of ullage space. Compare with atmospheric drain.</p>
+
+    <label class="field-label" for="vessel-type">Vessel type</label>
+    <select id="vessel-type" class="select">
+      <option value="sphere">Sphere</option>
+      <option value="cylinder">Horizontal Cylinder</option>
+    </select>
+
+    <div id="sphere-inputs" class="vessel-inputs">
+      <div class="steam-row">
+        <div class="steam-field">
+          <label class="field-label" for="sphere-volume">Sphere volume (m³)</label>
+          <input type="number" id="sphere-volume" class="input" value="100" step="any" min="0.001">
+        </div>
+        <div class="steam-field">
+          <label class="field-label" for="sphere-rate">Drain rate (m³/s)</label>
+          <input type="number" id="sphere-rate" class="input" value="0.001" step="any" min="0.000001">
+        </div>
+      </div>
+    </div>
+
+    <div id="cylinder-inputs" class="vessel-inputs hidden">
+      <div class="steam-row">
+        <div class="steam-field">
+          <label class="field-label" for="cyl-diameter">Diameter (m)</label>
+          <input type="number" id="cyl-diameter" class="input" value="10" step="any" min="0.001">
+        </div>
+        <div class="steam-field">
+          <label class="field-label" for="cyl-length">Length (m)</label>
+          <input type="number" id="cyl-length" class="input" value="60" step="any" min="0.001">
+        </div>
+        <div class="steam-field">
+          <label class="field-label" for="cyl-rate">Drain rate (m³/s)</label>
+          <input type="number" id="cyl-rate" class="input" value="1" step="any" min="0.000001">
+        </div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <h2 class="section-title">Air Pressurization</h2>
+    <p class="section-hint">Air above the liquid adds driving pressure. Flow: Q = min(Q<sub>max</sub>, k√(P<sub>air</sub> + ρgh)). Compares against atmospheric drain.</p>
+
+    <div class="steam-row press-row">
+      <div class="steam-field press-toggle">
+        <label class="checkbox-label">
+          <input type="checkbox" id="press-enabled">
+          Enable air pressurization
+        </label>
+      </div>
+    </div>
+
+    <div id="press-inputs" class="vessel-inputs hidden">
+      <div class="steam-row">
+        <div class="steam-field">
+          <label class="field-label" for="press-pressure">Initial gauge pressure</label>
+          <input type="number" id="press-pressure" class="input" value="2" step="any" min="0">
+        </div>
+        <div class="steam-field">
+          <label class="field-label" for="press-unit">Unit</label>
+          <select id="press-unit" class="select">
+            <option value="bar">bar</option>
+            <option value="kPa">kPa</option>
+            <option value="psi">psi</option>
+          </select>
+        </div>
+        <div class="steam-field">
+          <label class="field-label" for="press-mode">Air supply mode</label>
+          <select id="press-mode" class="select">
+            <option value="constant">Constant (regulated supply)</option>
+            <option value="sealed">Sealed ullage (isothermal gas)</option>
+          </select>
+        </div>
+      </div>
+      <div class="steam-row" id="ullage-row">
+        <div class="steam-field">
+          <label class="field-label" for="ullage-pct">Initial ullage (air space %)</label>
+          <input type="number" id="ullage-pct" class="input" value="5" step="any" min="0.1" max="50">
+        </div>
+      </div>
+    </div>
+
+    <button id="simulate-btn" class="calc-btn">Run Simulation</button>
+
+    <div class="drain-summary" id="drain-summary"></div>
+
+    <div class="drain-layout">
+      <div class="drain-visual-panel">
+        <h2 class="section-title" id="visual-title">Level Indicator — Vertical Diameter</h2>
+        <canvas id="vessel-canvas" width="320" height="400"></canvas>
+        <div class="drain-controls">
+          <label class="field-label" for="time-slider">Time scrubber</label>
+          <input type="range" id="time-slider" class="time-slider" min="0" max="100000" value="0" step="100">
+          <div class="time-display" id="time-display">t = 0 s — Level: 100%</div>
+          <button id="play-btn" class="calc-btn play-btn">▶ Play</button>
+        </div>
+      </div>
+
+      <div class="drain-graph-panel">
+        <h2 class="section-title">Level vs Time</h2>
+        <div class="graph-legend" id="graph-legend"></div>
+        <canvas id="graph-canvas" width="480" height="360"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <script src="drain.js"></script>
+</body>
+</html>
