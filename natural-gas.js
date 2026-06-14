@@ -366,8 +366,22 @@ function calculateAll() {
   drawBarChart(results);
 }
 
+function watchChartResize(draw) {
+  const root = document.querySelector(".gas-page");
+  if (!root) return;
+  let lastW = root.clientWidth;
+  let timer;
+  const ro = new ResizeObserver(() => {
+    const w = root.clientWidth;
+    if (Math.abs(w - lastW) < 12) return;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      lastW = w;
+      draw();
+    }, 200);
+  });
+  ro.observe(root);
+}
+
 calculateAll();
-window.addEventListener("resize", () => {
-  const results = MARI_SAMPLES.map(analyzeSample);
-  drawBarChart(results);
-});
+watchChartResize(() => drawBarChart(MARI_SAMPLES.map(analyzeSample)));

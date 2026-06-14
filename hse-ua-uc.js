@@ -99,6 +99,9 @@ function drawHorizontalBars(canvas, entries, color = "#2563eb") {
 }
 
 function drawDonut(canvas, segments) {
+  const baseH = canvas.getAttribute("height") | 0 || 260;
+  const preNarrow = (canvas.parentElement?.clientWidth || 800) < 520;
+  if (preNarrow) canvas.setAttribute("height", Math.max(baseH, 300));
   const { ctx, w, h } = setupCanvas(canvas, canvas.getAttribute("height") | 0 || 260);
   const narrow = isNarrow(w);
   const cx = w / 2, cy = narrow ? h * 0.36 : h / 2 - 10;
@@ -300,6 +303,29 @@ function renderAll(raw) {
   renderSheet1(d); renderCombined(d); renderHazard(d);
 }
 
+function watchLayoutResize(render) {
+  const root = document.querySelector(".hse-page");
+  if (!root) return;
+  let lastW = root.clientWidth;
+  let timer;
+  const ro = new ResizeObserver(() => {
+    const w = root.clientWidth;
+    if (Math.abs(w - lastW) < 12) return;
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      lastW = w;
+      render();
+    }, 200);
+  });
+  ro.observe(root);
+  window.addEventListener("orientationchange", () => {
+    setTimeout(() => {
+      lastW = 0;
+      render();
+    }, 350);
+  });
+}
+
 async function init() {
   try {
     const res = await fetch("hse-data.json");
@@ -307,7 +333,7 @@ async function init() {
     const data = await res.json();
     renderAll(data);
     window.__hseData = data;
-    window.addEventListener("resize", () => renderAll(window.__hseData));
+    watchLayoutResize(() => renderAll(window.__hseData));
   } catch (err) {
     document.getElementById("hse-subtitle").textContent = "Failed to load data.";
     console.error(err);
