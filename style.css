@@ -1067,6 +1067,10 @@ body:has(.gas-page) {
   font-weight: 600;
 }
 
+.hse-page-link a + a::before {
+  content: none;
+}
+
 .hse-page-link a:hover {
   text-decoration: underline;
 }

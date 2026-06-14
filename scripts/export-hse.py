@@ -106,7 +106,7 @@ def deep_analyze(records, label):
         "company": dict(counters["company"].most_common(10)),
         "field": dict(counters["field"].most_common()),
         "top_locations": dict(counters["location"].most_common(15)),
-        "top_reporters": dict(counters["reporter"].most_common(10)),
+        "top_reporters": dict(counters["reporter"].most_common(15)),
         "monitoring": dict(counters["monitoring"].most_common(10)),
         "golden_rules": dict(counters["golden"].most_common(12)),
         "psf": dict(counters["psf"].most_common()),

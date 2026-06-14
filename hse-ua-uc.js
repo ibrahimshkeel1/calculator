@@ -245,7 +245,7 @@ function renderCombined(d) {
     ${mon.map(([k, v]) => `<tr><td>${k}</td><td class="gas-num-cell">${fmt(v)}</td><td class="gas-num-cell">${pct(v, d.ua.total)}%</td></tr>`).join("")}
     </tbody></table>`;
   const locs = topEntries(d.ua.top_locations || {}, 8);
-  const reps = topEntries(d.ua.top_reporters || {}, 8);
+  const reps = topEntries(d.ua.top_reporters || {}, 15);
   document.getElementById("hse-top-lists").innerHTML = `<div class="hse-list-grid">
     <div><h3 class="method-heading">Top Locations</h3><ol class="hse-ranked-list">${locs.map(([n, c]) => `<li><span>${n}</span><strong>${fmt(c)}</strong></li>`).join("")}</ol></div>
     <div><h3 class="method-heading">Top Reporters</h3><ol class="hse-ranked-list">${reps.map(([n, c]) => `<li><span>${n}</span><strong>${fmt(c)}</strong></li>`).join("")}</ol></div>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Good Observations — Bhit Gas Field</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="scroll-page">
+  <nav class="nav">
+    <a href="index.html" class="nav-link">Calculator</a>
+    <a href="converter.html" class="nav-link">Unit Converter</a>
+    <a href="chem-eng.html" class="nav-link">Chem. Eng. Units</a>
+    <a href="drain.html" class="nav-link">Vessel Drain</a>
+    <a href="evaporation.html" class="nav-link">Evaporation Solids</a>
+    <a href="natural-gas.html" class="nav-link">Natural Gas</a>
+    <a href="hse-analysis.html" class="nav-link">HSE Analysis</a>
+    <a href="hse-ua-uc.html" class="nav-link">UA/UC Analysis</a>
+    <a href="hse-good-obs.html" class="nav-link active">Good Obs Analysis</a>
+  </nav>
+
+  <div class="converter hse-page">
+    <header class="gas-header">
+      <h1 class="converter-title" id="hse-title">Good Observations Deep Dive</h1>
+      <p class="section-hint gas-subtitle" id="hse-subtitle">Loading…</p>
+      <p class="section-hint hse-page-link"><a href="hse-analysis.html">← Full HSE Analysis (Sheet 1 &amp; 2)</a></p>
+    </header>
+
+    <div id="hse-banner" class="gas-field-banner"></div>
+    <div id="hse-insights" class="hse-insights-box"></div>
+
+    <section class="gas-section">
+      <h2 class="section-title">Summary — Sheet 2</h2>
+      <div class="gas-kpi-strip" id="hse-kpi"></div>
+    </section>
+
+    <section class="gas-section">
+      <h2 class="section-title">Monthly Trend</h2>
+      <p class="section-hint">Good observation reports per month</p>
+      <div class="gas-chart-panel">
+        <div class="bar-legend">
+          <span class="legend-item"><span class="legend-swatch" style="background:#22c55e"></span> Good Observations</span>
+        </div>
+        <canvas id="hse-monthly-chart" height="300"></canvas>
+      </div>
+    </section>
+
+    <section class="gas-section hse-two-col">
+      <div class="hse-panel">
+        <h2 class="section-title">Observation Category</h2>
+        <canvas id="hse-category-chart" height="260"></canvas>
+        <div id="hse-category-table" class="results-table-wrap gas-table-wrap"></div>
+      </div>
+      <div class="hse-panel">
+        <h2 class="section-title">Monitoring Points</h2>
+        <canvas id="hse-monitoring-chart" height="260"></canvas>
+        <div id="hse-monitoring-summary"></div>
+      </div>
+    </section>
+
+    <section class="gas-section hse-sheet-section">
+      <h2 class="section-title">Good Observations 2025–26</h2>
+      <p class="section-hint" id="sheet2-hint"></p>
+      <div class="hse-two-col">
+        <div class="hse-panel"><h3 class="method-heading">By Department</h3><canvas id="sheet2-dept-chart" height="300"></canvas></div>
+        <div class="hse-panel"><h3 class="method-heading">By Company</h3><canvas id="sheet2-company-chart" height="300"></canvas></div>
+      </div>
+      <div id="sheet2-tables" class="hse-three-col"></div>
+    </section>
+
+    <section class="gas-section hse-two-col">
+      <div class="hse-panel">
+        <h2 class="section-title">Top Locations</h2>
+        <div id="hse-top-locations"></div>
+      </div>
+      <div class="hse-panel">
+        <h2 class="section-title">Top Reporters</h2>
+        <div id="hse-top-reporters"></div>
+      </div>
+    </section>
+
+    <section class="gas-section gas-accuracy">
+      <h2 class="section-title">Data Source</h2>
+      <div class="evap-notes gas-disclaimer">
+        <p><strong>sheet eni.numbers</strong> — Sheet 2: Good Observations 2025–26 (1,509 records). Bhit Gas Field, Kirthar / Tajjal.</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="hse-good-obs.js"></script>
+</body>
+</html>
