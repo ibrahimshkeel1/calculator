@@ -1,0 +1,1088 @@
+{
+  "source": "sheet eni.numbers",
+  "title": "Bhit Gas Field \u2014 HSE Analysis",
+  "period": "2025\u20132026",
+  "field": "Kirthar / Tajjal (Bhit Gas Field)",
+  "sheets_analyzed": [
+    "UA UC 2025-2026",
+    "Good Observations 2025-26"
+  ],
+  "sheet1_ua_uc": {
+    "label": "UA/UC Register 2025-2026",
+    "total": 1621,
+    "columns": 26,
+    "status": {
+      "Closed": 1480,
+      "Open": 138,
+      "In Progress": 3
+    },
+    "type_breakdown": {
+      "Unsafe Condition": 1117,
+      "Unsafe Act": 504
+    },
+    "risk": {
+      "Low": 1585,
+      "Medium": 36
+    },
+    "category": {
+      "Safety": 1542,
+      "Health": 45,
+      "Environment": 32,
+      "safety": 1,
+      "Unknown": 1
+    },
+    "department": {
+      "Bhit HSE": 518,
+      "Bhit Maintenance": 406,
+      "Bhit Production": 202,
+      "Bhit Warehouse": 88,
+      "Bhit E&C": 67,
+      "Bhit Doctor": 67,
+      "Document Controller": 64,
+      "Bhit Security": 59,
+      "Bhit ICT": 53,
+      "Bhit Manager": 43,
+      "Field Administration": 35,
+      "Bhit Community": 16,
+      "Bhit community": 2,
+      "Contractor": 1
+    },
+    "company": {
+      "Prime": 1419,
+      "Icon": 163,
+      "Contractor": 14,
+      "icon": 11,
+      "TFS": 11,
+      "Unknown": 1,
+      "Mystic": 1,
+      "Piffers": 1
+    },
+    "field": {
+      "Kirthar": 1602,
+      "Kirther": 19
+    },
+    "top_locations": {
+      "Camp-1": 243,
+      "Camp-2": 146,
+      "PV Plant": 61,
+      "Bhit-11": 32,
+      "Utilities": 30,
+      "Bhit-6": 28,
+      "After Cooler Fan": 28,
+      "Camp-4": 26,
+      "Camp-01": 26,
+      "STP": 25,
+      "Drilling Yard": 24,
+      "Workshop": 23,
+      "Roads": 21,
+      "Parking": 21,
+      "CCR": 20
+    },
+    "top_reporters": {
+      "Raj Kumar": 144,
+      "Faisal Nadeem": 121,
+      "Ahmed Mujtaba": 110,
+      "Awais Ashraf": 93,
+      "Choudary Imran Ahmed": 65,
+      "M. Ahmed Shaikh": 42,
+      "Fayyaz Alam": 38,
+      "Khurram Ali": 35,
+      "Alam Raza": 34,
+      "Salman Shahid": 33
+    },
+    "monitoring": {
+      "BBS": 964,
+      "DHSER": 280,
+      "Site Visit": 202,
+      "Inspection": 88,
+      "Mail": 66,
+      "Drill": 20,
+      "Audit": 1
+    },
+    "golden_rules": {
+      "General": 628,
+      "PPEs": 258,
+      "Emergency Preparedness": 127,
+      "Driving Safety": 126,
+      "Slip, Trip & Fall": 74,
+      "Waste Management": 53,
+      "Work at Height": 52,
+      "Health Management": 52,
+      "Fire Safety": 50,
+      "Energized Systems": 21,
+      "Electrical Safety": 21,
+      "Permit to Work": 20
+    },
+    "psf": {
+      "No": 1602,
+      "Yes": 17,
+      "YES": 2
+    },
+    "swa": {
+      "No": 1002,
+      "Yes": 619
+    },
+    "action_party": {
+      "Person Involved": 379,
+      "Involved Person": 167,
+      "CMO": 127,
+      "Bhit Field Admin / Contractor": 114,
+      "Bhit Electrical": 79,
+      "Bhit Mechanical": 78,
+      "Production Supervisor": 74,
+      "Bhit Shift Engineer": 70,
+      "Bhit HSE": 50,
+      "Bhit E&C": 35,
+      "Bhit HSE / Alico": 27,
+      "Bhit Community / Security": 26
+    },
+    "monthly": {
+      "2025-07": 147,
+      "2025-08": 161,
+      "2025-09": 197,
+      "2025-10": 230,
+      "2025-11": 140,
+      "2025-12": 123,
+      "2026-01": 99,
+      "2026-02": 99,
+      "2026-03": 81,
+      "2026-04": 157,
+      "2026-05": 112,
+      "2026-06": 75
+    },
+    "open_by_department": {
+      "Bhit HSE": 59,
+      "Bhit Maintenance": 29,
+      "Bhit Production": 27,
+      "Field Administration": 8,
+      "Bhit Doctor": 5,
+      "Bhit ICT": 4,
+      "Bhit Warehouse": 2,
+      "Bhit E&C": 2,
+      "Bhit Manager": 1,
+      "Bhit Security": 1
+    },
+    "overdue_open": 88
+  },
+  "sheet2_good_obs": {
+    "label": "Good Observations 2025-26",
+    "total": 1509,
+    "columns": 20,
+    "status": {
+      "N/A": 1509
+    },
+    "type_breakdown": {
+      "Good Observation": 1506,
+      "Unsafe Condition": 2,
+      "Unknown": 1
+    },
+    "risk": {
+      "Unknown": 1509
+    },
+    "category": {
+      "Safety": 1500,
+      "Health": 7,
+      "Unknown": 1,
+      "Environment": 1
+    },
+    "department": {
+      "Bhit Production": 432,
+      "Bhit Maintenance": 377,
+      "Bhit HSE": 276,
+      "Bhit Warehouse": 140,
+      "Bhit E&C": 48,
+      "Bhit Doctor": 45,
+      "Document Controller": 41,
+      "Bhit Security": 40,
+      "Bhit ICT": 35,
+      "Field Administration": 33,
+      "Bhit Community": 25,
+      "Bhit Manager": 14,
+      "Bhit warehouse": 1,
+      "Unknown": 1,
+      "Bhit E & C": 1
+    },
+    "company": {
+      "Prime": 1365,
+      "Icon": 140,
+      "Unknown": 2,
+      "ICon": 2
+    },
+    "field": {
+      "Kirthar": 1508,
+      "Unknown": 1
+    },
+    "top_locations": {
+      "Camp-1": 175,
+      "Camp-2": 104,
+      "Utilities": 73,
+      "Workshops": 32,
+      "Bhit-11": 32,
+      "Badhra-02": 32,
+      "Badhra-10": 31,
+      "After Cooler Fan": 28,
+      "Bhit-6": 24,
+      "Bhit 11 WH": 24,
+      "Mechanical Workshop": 24,
+      "Workshop": 24,
+      "Train-2": 23,
+      "Autoshop": 22,
+      "Badhra-2": 21
+    },
+    "top_reporters": {
+      "Nadeem Bhatti": 125,
+      "Tariq Faheem": 93,
+      "Raj Kumar": 91,
+      "Faisal Nadeem": 76,
+      "Hafiz Muhammad Junaid": 74,
+      "Choudary Imran Ahmed": 68,
+      "Ahmed Mujtaba": 61,
+      "Fayyaz Alam": 45,
+      "Tahir Ghafoor": 42,
+      "Syed Aijaz Ahmad": 42
+    },
+    "monitoring": {
+      "BBS": 1208,
+      "DHSER": 218,
+      "Site Visit": 67,
+      "Mail": 8,
+      "mail": 4,
+      "Drill": 3,
+      "Unknown": 1
+    },
+    "golden_rules": {
+      "N/A": 1509
+    },
+    "psf": {
+      "N/A": 1509
+    },
+    "swa": {
+      "N/A": 1509
+    },
+    "action_party": {
+      "Unknown": 1509
+    },
+    "monthly": {
+      "2025-07": 134,
+      "2025-08": 150,
+      "2025-09": 136,
+      "2025-10": 161,
+      "2025-11": 118,
+      "2025-12": 96,
+      "2026-01": 123,
+      "2026-02": 121,
+      "2026-03": 113,
+      "2026-04": 117,
+      "2026-05": 167,
+      "2026-06": 72,
+      "Unknown": 1
+    },
+    "open_by_department": {},
+    "overdue_open": 0
+  },
+  "closure_rate_pct": 91.3,
+  "open_items": [
+    {
+      "sr": 19.0,
+      "name": "Fayyaz Alam",
+      "dept": "Bhit Maintenance",
+      "date": "2025-07-05 00:00:00",
+      "deadline": "2026-05-31 00:00:00",
+      "location": "Bhit WH",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Mechanical",
+      "description": "Due to improper installation of corrugated sheet top on murphy panel at Bhit well heads, all rainy water comes in front of control panel."
+    },
+    {
+      "sr": 262.0,
+      "name": "Awais Ashraf",
+      "dept": "Bhit HSE",
+      "date": "2025-08-22 00:00:00",
+      "deadline": "2026-05-31 00:00:00",
+      "location": "PV Plant",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Mechanical",
+      "description": "Only one wind sock is installed at PV Plant which is not visible from some areas."
+    },
+    {
+      "sr": 401.0,
+      "name": "Rafi Ullah Khan",
+      "dept": "Bhit Production",
+      "date": "2025-09-17 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Condensate loading  Area",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Instrument",
+      "description": "An unsafe condition has been observed at the diesel and condensate tanker unloading and loading gantry. The earth cables in this area are in very poor condition. The insulation on the cables is damage"
+    },
+    {
+      "sr": 405.0,
+      "name": "\tFayyaz Alam",
+      "dept": "Bhit Maintenance",
+      "date": "2025-09-17 00:00:00",
+      "deadline": "2026-05-31 00:00:00",
+      "location": "Bhit-11",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Mechanical",
+      "description": "Badhra-11 entrance Main gate is misalign, and it is very hard to open and close."
+    },
+    {
+      "sr": 419.0,
+      "name": "Ahmed Mujtaba",
+      "dept": "Bhit HSE",
+      "date": "2025-09-19 00:00:00",
+      "deadline": "2026-05-31 00:00:00",
+      "location": "Bhit-16",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "MSE \u2013 E&I",
+      "description": "Other Scrap Material stored along with Oil / Empty drums in secondary Containment  Pit at Bhit-16 Wellhead."
+    },
+    {
+      "sr": 466.0,
+      "name": "Shah Fahad",
+      "dept": "Bhit HSE",
+      "date": "2025-09-26 00:00:00",
+      "deadline": "FAO",
+      "location": "Propane Comp Area",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Mechanical",
+      "description": "3 Ea Globe valves handles were found broken and valve operation could not be performed in case of emergency propane leak."
+    },
+    {
+      "sr": 476.0,
+      "name": "Abdul Rafay",
+      "dept": "Bhit Maintenance",
+      "date": "2025-09-26 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Badhra Camp",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Mechanical",
+      "description": "MDG door lock is damaged. The door is being stopped with an Angle Iron Support which is resting on the walking platform, posing a tripping hazard on its platform."
+    },
+    {
+      "sr": 480.0,
+      "name": "Raj Kumar ",
+      "dept": "Bhit HSE",
+      "date": "2025-09-26 00:00:00",
+      "deadline": "TBD",
+      "location": "STP",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Mechanical / E&C",
+      "description": "It has been observed that there is no emergency gate at STP, only one entrance gate is available "
+    },
+    {
+      "sr": 543.0,
+      "name": "Babar Hussain",
+      "dept": "Bhit Production",
+      "date": "2025-10-08 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Power Generation",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Shift Engineer / Bhit Mechanical",
+      "description": "There is no grating or barrier on the drain channel near east equipment room, without grating and barrier could lead to an accident"
+    },
+    {
+      "sr": 546.0,
+      "name": "Aamir Atta Nagi",
+      "dept": "Bhit Maintenance",
+      "date": "2025-10-08 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Sale Gas Metering Area",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Shift Engineer",
+      "description": "On the way to the metering cabin, there are two isolation valves were installed face to face with their wheel position in passageway. This present a safety potential safety hazard, as it may cause hea"
+    },
+    {
+      "sr": 629.0,
+      "name": "Shahid Rafique",
+      "dept": " Bhit Production",
+      "date": "2025-10-11 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Badra-02",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "MSE \u2013 E&I",
+      "description": "illumination near the Cat Engine Murphy Panel is currently very poor due to non-functional pole lights in that area. This low visibility may affect operations and safety, especially during night shift"
+    },
+    {
+      "sr": 665.0,
+      "name": "Ahmed Mujtaba",
+      "dept": "Bhit HSE",
+      "date": "2025-10-16 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Bhit 16 WH",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Electrical",
+      "description": "E&I materials, specifically cable drums and power DBs, were observed stored in a non-designated area within the Bhit-16 wellhead vicinity.\nThe drums were placed on unprepared ground, potentially expos"
+    },
+    {
+      "sr": 801.0,
+      "name": "Raj Kumar ",
+      "dept": "Bhit HSE",
+      "date": "2025-11-18 00:00:00",
+      "deadline": "2026-07-31 00:00:00",
+      "location": "PV Plant",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Electrical",
+      "description": "At PV Plant, numerous fans of inverters are faulty as per monthly inspection report, it can lead to over heating of invertors and cause fire incident "
+    },
+    {
+      "sr": 877.0,
+      "name": "Yasir Hameed",
+      "dept": "Bhit Production",
+      "date": "2025-12-02 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Bhit WH",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Electrical",
+      "description": "several unsafe and non compliant lightning arrestor installations were identified at Bhit These installations appear unnecessary incorrectly positioned or installed at locations where they provide no "
+    },
+    {
+      "sr": 899.0,
+      "name": "\tSheikh Mohammad",
+      "dept": "Bhit Maintenance",
+      "date": "2025-12-07 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Produced Water Area",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Electrical",
+      "description": "poor Lighting observed at produce water area"
+    },
+    {
+      "sr": 900.0,
+      "name": "\tSheikh Mohammad",
+      "dept": "Bhit Maintenance",
+      "date": "2025-12-07 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Fuel Gas",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Electrical",
+      "description": "poor lighting observed at fuel gas area"
+    },
+    {
+      "sr": 902.0,
+      "name": "Nadeem Bhatti",
+      "dept": "Bhit Production",
+      "date": "2025-12-07 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Fuel Gas",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Electrical",
+      "description": "Poor illumination observed in produce water and fuel gas area. This low visibility may impact operations and safety during night shifts. Inform area authority to raise notification."
+    },
+    {
+      "sr": 917.0,
+      "name": "\tAamir Javed",
+      "dept": "Bhit Maintenance",
+      "date": "2025-12-10 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Export Gas Compressor",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Mechanical",
+      "description": "It was observed that export gas compressors area overhead lube oil storage tank metal platform metal toe board plates not existed east and west of the platform. The gap on the platform appears unsafe "
+    },
+    {
+      "sr": 929.0,
+      "name": "Ahmed Mujtaba",
+      "dept": "Bhit HSE",
+      "date": "2025-12-13 00:00:00",
+      "deadline": "2026-05-31 00:00:00",
+      "location": "Badhra 10 WH",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Inspection",
+      "description": "Third-party inspection marking date on the High-Efficiency Scrubber Vessel at BNC-2 Wellhead was found due."
+    },
+    {
+      "sr": 976.0,
+      "name": "Tabassum Shakeel",
+      "dept": "Bhit Manager",
+      "date": "2025-12-24 00:00:00",
+      "deadline": "2026-06-30 00:00:00",
+      "location": "PV Plant",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit HSE",
+      "description": "PV Plant Emergency scenario was not covered in Bhit LOI \u2013 Emergency Response Plan. "
+    },
+    {
+      "sr": 991.0,
+      "name": "Dr. Rafeeq",
+      "dept": "Bhit Doctor",
+      "date": "2025-12-28 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Plant Fence",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Mechanical",
+      "description": "Significant vegetation growth has obstructed the access path of Plant Fence Emergency Gate # 2, restricting free movement toward the gate. The gate was found seized / jammed and could not be opened in"
+    },
+    {
+      "sr": 1047.0,
+      "name": "Raj Kumar ",
+      "dept": "Bhit HSE",
+      "date": "2026-01-17 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Warehouse",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Electrical ",
+      "description": "Electrical items (Air cooler and Stand fan) both inspection is due since November 2025"
+    },
+    {
+      "sr": 1103.0,
+      "name": "Awais Ashraf",
+      "dept": "Bhit HSE",
+      "date": "2026-02-02 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Badhra-7",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Mechanical",
+      "description": "Badhra-7 main entrance gate vertical pole damage from both bottom and top side. "
+    },
+    {
+      "sr": 1129.0,
+      "name": "Babar Hussain",
+      "dept": "Bhit Production",
+      "date": "2026-02-08 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Flare & Vent",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Shift Engineer",
+      "description": "The field switch board tag of LP Flare drum pump B is missing."
+    },
+    {
+      "sr": 1132.0,
+      "name": "Babar Hussain",
+      "dept": "Bhit Production",
+      "date": "2026-02-09 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Power Generation",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Shift Engineer",
+      "description": "Tags are missing at utility points near fuel gas knock out drum of GTs"
+    },
+    {
+      "sr": 1137.0,
+      "name": "Awais Ashraf",
+      "dept": "Bhit HSE",
+      "date": "2026-02-10 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Train-1",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Emergency Teams ",
+      "description": "Appropriate ladder was not available to enter into the trench.\nScaffolder immediately arranged ladder from old warehouse."
+    },
+    {
+      "sr": 1160.0,
+      "name": "Muhammad Taqiuddin",
+      "dept": "Bhit Warehouse",
+      "date": "2026-02-21 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Gasco Yard",
+      "type": "Unsafe Act",
+      "risk": "Low",
+      "action": "Bhit Material/ Commununity",
+      "description": "Yard Area need bush and grass cutting"
+    },
+    {
+      "sr": 1161.0,
+      "name": "Muhammad Taqiuddin",
+      "dept": "Bhit Warehouse",
+      "date": "2026-02-21 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "Drilling Yard",
+      "type": "Unsafe Act",
+      "risk": "Low",
+      "action": "Bhit Material/ Commununity",
+      "description": "New and expensive material kept in open area in yard which can cause of damaged rubber seals due to sunlight"
+    },
+    {
+      "sr": 1162.0,
+      "name": "Ahmed Mujtaba",
+      "dept": "Bhit HSE",
+      "date": "2026-02-21 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "PV Plant",
+      "type": "Unsafe Condition",
+      "risk": "Medium",
+      "action": "Bhit Electrical",
+      "description": "During the monthly inspection at the PV Plant, it was observed that 48 inverter cooling fans are faulty / non-operational. Cooling fans are essential for maintaining inverter temperature within safe o"
+    },
+    {
+      "sr": 1182.0,
+      "name": "\tTahir Ghafoor",
+      "dept": "Bhit Production",
+      "date": "2026-02-24 00:00:00",
+      "deadline": "2026-05-15 00:00:00",
+      "location": "STP",
+      "type": "Unsafe Condition",
+      "risk": "Low",
+      "action": "Bhit Mechanical",
+      "description": "The fence surrounding the STP sprinkler area has fallen and is damaged at multiple locations. This condition may allow unauthorized personnel or animals to access the area, posing a potential safety r"
+    }
+  ],
+  "hazard_analysis": {
+    "hazard_themes": {
+      "PPE Non-Compliance": 232,
+      "Slip, Trip & Fall": 191,
+      "Emergency Preparedness": 162,
+      "Work at Height / Line of Fire": 156,
+      "Driving / Road Safety": 155,
+      "Environmental / Spill": 147,
+      "Process Safety / Isolation": 144,
+      "Electrical / Energized": 139,
+      "Fire & Explosion": 116
+    },
+    "top_hazard_locations": {
+      "Camp-1": 243,
+      "Camp-2": 146,
+      "PV Plant": 61,
+      "Bhit-11": 32,
+      "Utilities": 30,
+      "Bhit-6": 28,
+      "After Cooler Fan": 28,
+      "Camp-4": 26,
+      "Camp-01": 26,
+      "STP": 25,
+      "Drilling Yard": 24,
+      "Workshop": 23,
+      "Roads": 21,
+      "Parking": 21,
+      "CCR": 20,
+      "Power Generation": 19,
+      "Bhit-3": 18,
+      "Train-02": 18,
+      "Badhra-2": 17,
+      "Warehouse": 17
+    },
+    "medium_risk_by_location": {
+      "D-9 Road": 2,
+      "Camp-1": 2,
+      "Bhit-6": 2,
+      "Badhra 2 WH": 2,
+      "After Cooler Fan": 2,
+      "Roads": 1,
+      "Bhit-3": 1,
+      "Bhit WH Access Roads": 1,
+      "Train-02": 1,
+      "Bhit-2": 1,
+      "Vent and Flare": 1,
+      "CP-4 to CP-5 Road": 1,
+      "After Coller Fan": 1,
+      "Utilities": 1,
+      "Plant": 1
+    },
+    "open_by_location": {
+      "PV Plant": 13,
+      "Camp-1": 11,
+      "Camp-2": 9,
+      "Camp-01": 7,
+      "STP": 5,
+      "Badhra-6": 4,
+      "WER": 4,
+      "Bhit WH": 3,
+      "Bhit-11": 3,
+      "Export Gas Compressor": 3,
+      "Badhra-7": 3,
+      "Drilling Yard": 3,
+      "Waste yard": 3,
+      "Bhit-16": 2,
+      "Power Generation": 2
+    },
+    "open_by_golden": {
+      "General": 84,
+      "Slip, Trip & Fall": 9,
+      "Emergency Preparedness": 8,
+      "Fire Safety": 5,
+      "Housekeeping": 5,
+      "Driving Safety": 5,
+      "Energized Systems": 4,
+      "Environmental Hazard": 3,
+      "Waste Management": 2,
+      "Electrical Safety": 2
+    },
+    "area_groups": {
+      "Camp & Living Areas": 506,
+      "Other / General": 402,
+      "Plant & Processing": 260,
+      "Wellheads / Production": 249,
+      "Workshops & Yard": 145,
+      "Roads & Transport": 59
+    },
+    "area_groups_medium": {
+      "Other / General": 10,
+      "Wellheads / Production": 9,
+      "Plant & Processing": 6,
+      "Roads & Transport": 5,
+      "Camp & Living Areas": 4,
+      "Workshops & Yard": 2
+    },
+    "medium_risk_total": 36,
+    "medium_risk_samples": [
+      {
+        "sr": 2.0,
+        "loc": "Roads",
+        "golden": "General",
+        "risk": "Medium",
+        "status": "Closed",
+        "desc": "The road between Bhit CP-4 and CP-5 security check posts has been damaged by recent rainfall, which has caused the sand base to wash away. This poses a significant hazard to the maintenance teams who travel daily to the "
+      },
+      {
+        "sr": 238.0,
+        "loc": "Bhit-3",
+        "golden": "Energized Systems",
+        "risk": "Medium",
+        "status": "Closed",
+        "desc": "Observed one production employee dealing with MCC starter after tripped of HVAC and was pulling the MCC starter outside to check and reset the circuit, that is purely the domain of Electrical Team and may cause flashover"
+      },
+      {
+        "sr": 248.0,
+        "loc": "Bhit WH Access Roads",
+        "golden": "Driving Safety",
+        "risk": "Medium",
+        "status": "Closed",
+        "desc": "Bhit wellhead Road\u2019s survey was carried out after heavy rain spell:\nCP-4 to CP-5 Road: \n\u2022\tPipe culverts (drain pipe) have been blocked due to land slide, preventing proper drainage and leading to water accumulation benea"
+      },
+      {
+        "sr": 305.0,
+        "loc": "Train-02",
+        "golden": "Risk Assessment",
+        "risk": "Medium",
+        "status": "Closed",
+        "desc": "Hazards related to night activities and excessive hot temperatures were not included in the risk assessment issued for scaling removal activity for after-cooler fans."
+      },
+      {
+        "sr": 447.0,
+        "loc": "Bhit-2",
+        "golden": "Emergency Preparedness",
+        "risk": "Medium",
+        "status": "Closed",
+        "desc": "The emergency exit gate at Bhit-2, located near the produced water pit, was found open. The lock and key were also missing."
+      },
+      {
+        "sr": 472.0,
+        "loc": "Vent and Flare",
+        "golden": "General",
+        "risk": "Medium",
+        "status": "Closed",
+        "desc": "During drill at propane storage area, it has been observed that 2 fire water hydrants are already engaged due to ongoing water showering activity on after cooler fans due to operational constraints.  "
+      },
+      {
+        "sr": 477.0,
+        "loc": "CP-4 to CP-5 Road",
+        "golden": "General",
+        "risk": "Medium",
+        "status": "Closed",
+        "desc": "The road between Bhit CP-4 and CP-5 security check posts has been damaged by recent rain, causing the sand base to wash away. This poses a significant hazard to the maintenance teams who travel daily to the Bhit site. Fr"
+      },
+      {
+        "sr": 507.0,
+        "loc": "After Coller Fan",
+        "golden": "Work at Height",
+        "risk": "Medium",
+        "status": "Closed",
+        "desc": "During the after-cooler cleaning activity, it was observed that a contractor person was standing by keeping both feet on the top of scaffolding pipes to reach the targeted area, creating an unsafe situation. where slippe"
+      },
+      {
+        "sr": 508.0,
+        "loc": "D-9 Road",
+        "golden": "PPE's",
+        "risk": "Medium",
+        "status": "Closed",
+        "desc": "During the D-9 road repair activity, the local labor deputed for this job were observed wearing damaged safety shoes, specifically with compromised soles."
+      },
+      {
+        "sr": 545.0,
+        "loc": "Utilities",
+        "golden": "General",
+        "risk": "Medium",
+        "status": "Closed",
+        "desc": "During the overhaul of the instrument air compressor B it was confirmed that energy isolation measures were in place and effective. However it was noted that the isolation tag on the process isolation valve was missing."
+      },
+      {
+        "sr": 556.0,
+        "loc": "Plant",
+        "golden": "Driving Safety",
+        "risk": "Medium",
+        "status": "Closed",
+        "desc": "During re-inspection of contractor dumpers, pressure brake leakages was observed in one dumper, and another was also unable to perform its function effectively "
+      },
+      {
+        "sr": 579.0,
+        "loc": "STP",
+        "golden": "PPEs",
+        "risk": "Medium",
+        "status": "Closed",
+        "desc": "During lifting activity with boom Truck to load the old STP stair on Hino Truck, Area was not barricaded and two unauthorized people without PPEs compliance holding the stair"
+      },
+      {
+        "sr": 611.0,
+        "loc": "D-9 Road",
+        "golden": "General",
+        "risk": "Medium",
+        "status": "Closed",
+        "desc": "During a site visit at D-9 road repair work, it was observed that 4\u20135 contractor staff were attempting to manually lift a large metallic drum filled with water in order to pour the water into a wheel loader bucket. The d"
+      },
+      {
+        "sr": 643.0,
+        "loc": "D-09",
+        "golden": "General",
+        "risk": "Medium",
+        "status": "Closed",
+        "desc": "Coaster driver was sleeping or taking rest on side of D-09 road entrance by keeping sheet underneath with bare feet posing snake bite hazard and also possible vehicle hit hazard "
+      },
+      {
+        "sr": 702.0,
+        "loc": "Camp-1",
+        "golden": "Health Management",
+        "risk": "Medium",
+        "status": "Closed",
+        "desc": "Fumigation was carried out at Camp-1 accommodation rooms by the TFS fumigator. However, an unbearable smell was later reported by several room residents. It was found that the Safety Data Sheet (SDS) for the fumigation c"
+      }
+    ],
+    "open_high_concern": [
+      {
+        "sr": 19.0,
+        "loc": "Bhit WH",
+        "golden": "General",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "Due to improper installation of corrugated sheet top on murphy panel at Bhit well heads, all rainy water comes in front of control panel."
+      },
+      {
+        "sr": 262.0,
+        "loc": "PV Plant",
+        "golden": "Emergency Preparedness",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "Only one wind sock is installed at PV Plant which is not visible from some areas."
+      },
+      {
+        "sr": 401.0,
+        "loc": "Condensate loading  Area",
+        "golden": "Energized Systems",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "An unsafe condition has been observed at the diesel and condensate tanker unloading and loading gantry. The earth cables in this area are in very poor condition. The insulation on the cables is damage"
+      },
+      {
+        "sr": 405.0,
+        "loc": "Bhit-11",
+        "golden": "General",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "Badhra-11 entrance Main gate is misalign, and it is very hard to open and close."
+      },
+      {
+        "sr": 419.0,
+        "loc": "Bhit-16",
+        "golden": "Waste Management",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "Other Scrap Material stored along with Oil / Empty drums in secondary Containment  Pit at Bhit-16 Wellhead."
+      },
+      {
+        "sr": 476.0,
+        "loc": "Badhra Camp",
+        "golden": "General",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "MDG door lock is damaged. The door is being stopped with an Angle Iron Support which is resting on the walking platform, posing a tripping hazard on its platform."
+      },
+      {
+        "sr": 543.0,
+        "loc": "Power Generation",
+        "golden": "Slip, Trip & Fall",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "There is no grating or barrier on the drain channel near east equipment room, without grating and barrier could lead to an accident"
+      },
+      {
+        "sr": 546.0,
+        "loc": "Sale Gas Metering Area",
+        "golden": "Slip, Trip & Fall",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "On the way to the metering cabin, there are two isolation valves were installed face to face with their wheel position in passageway. This present a safety potential safety hazard, as it may cause hea"
+      },
+      {
+        "sr": 629.0,
+        "loc": "Badra-02",
+        "golden": "General",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "illumination near the Cat Engine Murphy Panel is currently very poor due to non-functional pole lights in that area. This low visibility may affect operations and safety, especially during night shift"
+      },
+      {
+        "sr": 665.0,
+        "loc": "Bhit 16 WH",
+        "golden": "General",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "E&I materials, specifically cable drums and power DBs, were observed stored in a non-designated area within the Bhit-16 wellhead vicinity.\nThe drums were placed on unprepared ground, potentially expos"
+      },
+      {
+        "sr": 877.0,
+        "loc": "Bhit WH",
+        "golden": "Electrical Safety",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "several unsafe and non compliant lightning arrestor installations were identified at Bhit These installations appear unnecessary incorrectly positioned or installed at locations where they provide no "
+      },
+      {
+        "sr": 899.0,
+        "loc": "Produced Water Area",
+        "golden": "General",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "poor Lighting observed at produce water area"
+      },
+      {
+        "sr": 900.0,
+        "loc": "Fuel Gas",
+        "golden": "General",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "poor lighting observed at fuel gas area"
+      },
+      {
+        "sr": 902.0,
+        "loc": "Fuel Gas",
+        "golden": "General",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "Poor illumination observed in produce water and fuel gas area. This low visibility may impact operations and safety during night shifts. Inform area authority to raise notification."
+      },
+      {
+        "sr": 917.0,
+        "loc": "Export Gas Compressor",
+        "golden": "Work at Height",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "It was observed that export gas compressors area overhead lube oil storage tank metal platform metal toe board plates not existed east and west of the platform. The gap on the platform appears unsafe "
+      },
+      {
+        "sr": 929.0,
+        "loc": "Badhra 10 WH",
+        "golden": "Asset Integrity",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "Third-party inspection marking date on the High-Efficiency Scrubber Vessel at BNC-2 Wellhead was found due."
+      },
+      {
+        "sr": 991.0,
+        "loc": "Plant Fence",
+        "golden": "Emergency Preparedness",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "Significant vegetation growth has obstructed the access path of Plant Fence Emergency Gate # 2, restricting free movement toward the gate. The gate was found seized / jammed and could not be opened in"
+      },
+      {
+        "sr": 1047.0,
+        "loc": "Warehouse",
+        "golden": "Inspection",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "Electrical items (Air cooler and Stand fan) both inspection is due since November 2025"
+      },
+      {
+        "sr": 1103.0,
+        "loc": "Badhra-7",
+        "golden": "Asset Integrity",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "Badhra-7 main entrance gate vertical pole damage from both bottom and top side. "
+      },
+      {
+        "sr": 1129.0,
+        "loc": "Flare & Vent",
+        "golden": "General",
+        "risk": "Low",
+        "overdue": true,
+        "desc": "The field switch board tag of LP Flare drum pump B is missing."
+      }
+    ],
+    "psf_applicable_count": 19,
+    "recommendations": [
+      {
+        "priority": "High",
+        "area": "PPE Compliance",
+        "finding": "232 PPE-related events (Sheet 1)",
+        "action": "PPE checkpoint at plant entry; toolbox talks on eye protection and footwear in camp/workshop areas."
+      },
+      {
+        "priority": "Critical",
+        "area": "Process Safety",
+        "finding": "144 process/isolation events; 19 PSF-flagged",
+        "action": "Valve isolation tagging (DO NOT OPERATE); line-up verification; amine mothballing compliance."
+      },
+      {
+        "priority": "High",
+        "area": "Work at Height",
+        "finding": "156 height/line-of-fire events",
+        "action": "100% tie-off above 1.8m; barricades for overhead work; SWA audit for contractors."
+      },
+      {
+        "priority": "High",
+        "area": "Housekeeping / STF",
+        "finding": "191 slip/trip events",
+        "action": "Weekly housekeeping audits Camp-1/Camp-2; cable/hose routing in plant areas."
+      },
+      {
+        "priority": "High",
+        "area": "Driving Safety",
+        "finding": "155 vehicle/road events",
+        "action": "Road repair CP-4/CP-5; speed enforcement; vehicle permit compliance at wellheads."
+      },
+      {
+        "priority": "Medium",
+        "area": "Camp Areas",
+        "finding": "506 events in camp zones",
+        "action": "Camp HSE walkdowns; mess hall safety; illumination upgrades."
+      },
+      {
+        "priority": "Critical",
+        "area": "Plant & Processing",
+        "finding": "260 events in plant areas",
+        "action": "Process safety inspections; amine drainage containment; SIMOPS review."
+      },
+      {
+        "priority": "Medium",
+        "area": "Open Item Backlog",
+        "finding": "138 open; PV Plant leads",
+        "action": "Monthly open-item review; escalate overdue items to department heads."
+      }
+    ]
+  },
+  "insights": [
+    "Sheet 1 \u2014 UA/UC: 1621 reports, 91.3% closed, 138 open (88 overdue).",
+    "Sheet 2 \u2014 Good Obs: 1509 positive reports (93% of UA/UC volume).",
+    "Unsafe Conditions (1117) vs Acts (504).",
+    "Top UA/UC dept: Bhit HSE (518); top Good Obs dept: Bhit Production.",
+    "BBS monitoring: 964 UA/UC, 1208 good obs.",
+    "SWA applied: 619 (38%).",
+    "Peak UA/UC month: 2025-10 (230)."
+  ]
+}

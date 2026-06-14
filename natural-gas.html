@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Natural Gas Properties — ASTM D-3588</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-link">Calculator</a>
+    <a href="converter.html" class="nav-link">Unit Converter</a>
+    <a href="chem-eng.html" class="nav-link">Chem. Eng. Units</a>
+    <a href="drain.html" class="nav-link">Vessel Drain</a>
+    <a href="evaporation.html" class="nav-link">Evaporation Solids</a>
+    <a href="natural-gas.html" class="nav-link">Natural Gas</a>
+    <a href="hse-analysis.html" class="nav-link">HSE Analysis</a>
+  </nav>
+
+  <div class="converter gas-page">
+    <header class="gas-header">
+      <h1 class="converter-title">Natural Gas Properties</h1>
+      <p class="section-hint gas-subtitle">ASTM D-3588 / GPA 2145 calculations at 60&nbsp;°F &amp; 14.73&nbsp;psia — dry, ideal basis</p>
+    </header>
+
+    <div id="mari-meta" class="gas-field-banner"></div>
+
+    <section class="gas-section">
+      <h2 class="section-title">Key Results</h2>
+      <p class="section-hint">Primary ASTM D-3588 properties for each sample</p>
+      <div class="gas-kpi-strip" id="gas-kpi-strip"></div>
+    </section>
+
+    <section class="gas-section">
+      <h2 class="section-title">Comparison Chart</h2>
+      <div class="gas-chart-panel">
+        <div class="bar-legend">
+          <span class="legend-item"><span class="legend-swatch gas-swatch-raw"></span> Raw Gas</span>
+          <span class="legend-item"><span class="legend-swatch gas-swatch-permeate"></span> Permeate Gas</span>
+          <span class="legend-item"><span class="legend-swatch gas-swatch-product"></span> Natural Gas</span>
+        </div>
+        <canvas id="mari-bar-chart" width="860" height="300"></canvas>
+      </div>
+    </section>
+
+    <section class="gas-section">
+      <h2 class="section-title">ASTM D-3588 Properties</h2>
+      <div class="results-table-wrap gas-table-wrap">
+        <table class="results-table gas-compare-table" id="compare-table">
+          <thead>
+            <tr>
+              <th class="gas-th-property">Property</th>
+              <th class="gas-th-raw">Raw Gas<span>Guru-02B Separator</span></th>
+              <th class="gas-th-permeate">Permeate Gas<span>Guru-02B SSM</span></th>
+              <th class="gas-th-product">Natural Gas<span>Compressor Discharge</span></th>
+            </tr>
+          </thead>
+          <tbody id="compare-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="gas-section">
+      <h2 class="section-title">Sample Compositions</h2>
+      <p class="section-hint">Mol % from Mari Gas Field analysis — normalized to 100% for calculations</p>
+      <div class="mari-samples" id="mari-samples"></div>
+    </section>
+
+    <section class="method-section gas-method">
+      <h2 class="section-title">Method &amp; Formulae</h2>
+
+      <div class="example-box">
+        <p><strong>Standard:</strong> ASTM D-3588 with GPA 2145 component constants</p>
+        <p><strong>Base conditions:</strong> 60&nbsp;°F (15.56&nbsp;°C), 14.73&nbsp;psia, dry gas</p>
+      </div>
+
+      <div class="method-block">
+        <h3 class="method-heading">Ideal Relative Density</h3>
+        <p>Mole-fraction-weighted sum of GPA 2145 ideal component relative densities (air = 1.0000). C₆+ uses n-hexane average when present.</p>
+        <div class="formula-card">
+          <p class="formula-label">Formula</p>
+          <p class="formula">RD<sub>ideal</sub> = Σ (x<sub>i</sub> × G<sub>i</sub>)</p>
+        </div>
+      </div>
+
+      <div class="method-block">
+        <h3 class="method-heading">Ideal Gross Heating Value</h3>
+        <p>Higher heating value with all combustion water condensed. Scaled from 14.696 to 14.73&nbsp;psia.</p>
+        <div class="formula-card">
+          <p class="formula-label">Formula</p>
+          <p class="formula">HHV<sub>ideal</sub> = Σ (x<sub>i</sub> × HHV<sub>i</sub>) × (14.73 / 14.696)</p>
+          <p class="formula-alt">Units: Btu/scf</p>
+        </div>
+      </div>
+
+      <div class="method-block">
+        <h3 class="method-heading">Wobbe Index (Superior)</h3>
+        <p>Burner interchangeability — gases with equal Wobbe deliver equal heat at fixed orifice pressure.</p>
+        <div class="formula-card">
+          <p class="formula-label">Formula</p>
+          <p class="formula">WI = HHV<sub>ideal</sub> / √RD<sub>ideal</sub></p>
+          <p class="formula-alt">Units: Btu/scf</p>
+        </div>
+      </div>
+
+      <div class="method-block">
+        <h3 class="method-heading">Real Gas Correction (GPA 2172)</h3>
+        <p>Compressibility at base: Z = Σ (x<sub>i</sub> × b<sub>i</sub>). Real values = ideal ÷ Z.</p>
+        <div class="formula-card">
+          <p class="formula-label">Formula</p>
+          <p class="formula">RD<sub>real</sub> = RD<sub>ideal</sub> / Z</p>
+          <p class="formula-alt">HHV<sub>real</sub> = HHV<sub>ideal</sub> / Z</p>
+        </div>
+      </div>
+
+      <div class="example-box">
+        <p><strong>Check — pure methane:</strong> RD = 0.5539 &nbsp;·&nbsp; HHV = 1012.3 Btu/scf &nbsp;·&nbsp; WI = 1360.2 Btu/scf</p>
+      </div>
+    </section>
+
+    <section class="gas-section gas-accuracy">
+      <h2 class="section-title">Accuracy &amp; Limitations</h2>
+      <p class="section-hint">How reliable these results are, and what they do not represent</p>
+
+      <div class="example-box gas-accuracy-summary">
+        <p><strong>Bottom line:</strong> Ideal relative density, ideal gross heating value, and Wobbe index are calculated correctly per ASTM D-3588 / GPA 2145 and are suitable for engineering comparison across the three Mari Gas samples. They are not a substitute for a certified GC or BTU analyzer for custody transfer or billing disputes.</p>
+      </div>
+
+      <div class="method-block">
+        <h3 class="method-heading">Property Accuracy</h3>
+        <div class="results-table-wrap gas-table-wrap">
+          <table class="results-table gas-accuracy-table">
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Expected Accuracy</th>
+                <th>Basis</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="gas-key-row">
+                <td>Ideal relative density</td>
+                <td class="gas-num-cell">±0.1%</td>
+                <td>Σ(x<sub>i</sub> × G<sub>i</sub>) with GPA 2145 constants</td>
+              </tr>
+              <tr class="gas-key-row">
+                <td>Ideal gross heating value</td>
+                <td class="gas-num-cell">±0.2%</td>
+                <td>Mole-weighted HHV; scaled to 14.73 psia</td>
+              </tr>
+              <tr class="gas-key-row">
+                <td>Wobbe index (ideal)</td>
+                <td class="gas-num-cell">±0.2%</td>
+                <td>HHV / √RD — derived from above</td>
+              </tr>
+              <tr>
+                <td>Real gas values (Z correction)</td>
+                <td class="gas-num-cell">±0.2–0.5%</td>
+                <td>GPA 2172 summation factors; Z ≈ 0.998 for these mixtures</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="gas-accuracy-note">Sanity check — pure methane: RD = 0.5539, HHV = 1012.3 Btu/scf @ 14.73 psia, WI = 1360.2 Btu/scf (matches GPA 2145).</p>
+      </div>
+
+      <div class="method-block">
+        <h3 class="method-heading">Sources of Difference vs. a Lab Certificate</h3>
+        <ul class="method-list ordered gas-limit-list">
+          <li><strong>Composition normalization</strong> — Reported totals are 99.83%, 99.76%, and 99.99% mol%. Values are normalized to 100%, which is standard practice. Effect on results: &lt; 0.2%.</li>
+          <li><strong>neo-Pentane</strong> — Not tabulated in GPA 2145; constants are from GPA TP-17 (near iso-pentane). At 0.0004–0.0017 mol%, impact is negligible.</li>
+          <li><strong>GPA edition</strong> — Constants are from GPA 2145-09. GPA 2145-16 may differ slightly, typically &lt; 0.1 Btu/scf on HHV.</li>
+          <li><strong>Base pressure</strong> — Results are at 14.73 psia. ASTM reference is 14.696 psia (+0.23% correction applied). Labs reporting at 14.696 psia will show values ~0.2% lower.</li>
+          <li><strong>Line pressure &amp; temperature</strong> — Operating conditions (e.g. 1215 psig, 155 °F) are shown for reference only. Base-condition RD, GHV, and Wobbe depend on composition, not line P or T.</li>
+          <li><strong>Ideal vs. real</strong> — Custody transfer often uses real GHV (ideal ÷ Z). For these samples, real GHV is only ~0.1–0.3% higher than ideal (e.g. Raw Gas: 478.5 vs 477.7 Btu/scf).</li>
+        </ul>
+      </div>
+
+      <div class="method-block">
+        <h3 class="method-heading">What This Calculator Is Not</h3>
+        <ul class="method-list gas-limit-list">
+          <li>Not <strong>ISO 6976</strong> (15 °C base) — US ASTM uses 60 °F; values differ by roughly 0.5–1%.</li>
+          <li>Not a rigorous <strong>hydrocarbon dew point</strong> calculation (no EOS such as GERG-2008 or AGA 8).</li>
+          <li>Not certified for <strong>revenue metering</strong> or contractual BTU determination without independent verification.</li>
+        </ul>
+      </div>
+
+      <div class="evap-notes gas-disclaimer">
+        <p><strong>Data source:</strong> Mari Gas Field lab analysis — 5 June 2026, MARI Energies Limited, Daharki, Sindh. Component constants: GPA 2145-09. Calculation practice: ASTM D-3588-98.</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="natural-gas.js"></script>
+</body>
+</html>
